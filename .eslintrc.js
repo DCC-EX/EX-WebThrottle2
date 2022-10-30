@@ -12,6 +12,6 @@ module.exports = {
     ecmaVersion: 'latest'
   },
   rules: {
-    semi: ["warn", "always"]
+    semi: ["error", "always"]
   }
 };

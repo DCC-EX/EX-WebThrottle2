@@ -1,13 +1,11 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Deploy to GitHub Pages
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
+  release:
     branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -28,26 +26,12 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.5.1
         with:
-          # Set always-auth in npmrc.
-          # always-auth: # optional, default is false
           # Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.
-          node-version: 16.x # optional
-          # File containing the version Spec of the version to use.  Examples: .nvmrc, .node-version, .tool-versions.
-          # node-version-file: # optional
-          # Target architecture for Node to use. Examples: x86, x64. Will use system architecture by default.
-          # architecture: # optional
-          # Set this option if you want the action to check for the latest available version that satisfies the version spec.
-          # check-latest: # optional
-          # Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN.
-          # registry-url: # optional
-          # Optional scope for authenticating against scoped registries. Will fall back to the repository owner when using the GitHub Packages registry (https://npm.pkg.github.com/).
-          # scope: # optional
-          # Used to pull node distributions from node-versions.  Since there's a default, this is typically not supplied by the user.
-          # token: # optional, default is ${{ github.token }}
+          node-version: 16.x
           # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm.
-          cache: npm # optional
+          cache: npm 
           # Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.
-          cache-dependency-path: package-lock.json # optional
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
         run: npm install
@@ -59,9 +43,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1.0.4
         with:
           # Path of the directory containing the static assets.
-          path: dist/ # default is _site/
-          # Duration after which artifact will expire in days.
-          #retention-days: # optional, default is 1
+          path: dist/
 
   deploy:
     needs: build

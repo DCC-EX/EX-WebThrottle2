@@ -17,6 +17,7 @@ on:
     branches: [ "main" ]
   schedule:
     - cron: '44 12 * * 3'
+  workflow_dispatch:
 
 jobs:
   eslint:

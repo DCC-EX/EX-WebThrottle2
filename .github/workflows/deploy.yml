@@ -62,7 +62,21 @@ jobs:
           path: dist/ # default is _site/
           # Duration after which artifact will expire in days.
           #retention-days: # optional, default is 1
-      
+
+  deploy:
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+
+    steps:  
       - name: Deploy GitHub Pages site
         uses: actions/deploy-pages@v1.2.2
         #with:

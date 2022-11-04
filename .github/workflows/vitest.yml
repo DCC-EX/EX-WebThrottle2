@@ -1,4 +1,4 @@
-name: Vitest Tests
+name: Vitest
 on:
   push:
     branches: ["main", "next-release"]

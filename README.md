@@ -2,6 +2,12 @@
 [![GitHub issues](https://img.shields.io/github/issues/dcc-ex/EX-WebThrottle2)](https://github.com/dcc-ex/EX-WebThrottle2/issues)
 [![Discord](https://img.shields.io/discord/713189617066836079)](https://discord.gg/y2sB4Fp)
 
+`next-release` status:
+
+[![ESLint](https://github.com/DCC-EX/EX-WebThrottle2/actions/workflows/eslint.yml/badge.svg?branch=next-release)](https://github.com/DCC-EX/EX-WebThrottle2/actions/workflows/eslint.yml)
+[![Playwright](https://github.com/DCC-EX/EX-WebThrottle2/actions/workflows/playwright.yml/badge.svg?branch=next-release)](https://github.com/DCC-EX/EX-WebThrottle2/actions/workflows/playwright.yml)
+[![Vitest](https://github.com/DCC-EX/EX-WebThrottle2/actions/workflows/vitest.yml/badge.svg?branch=next-release)](https://github.com/DCC-EX/EX-WebThrottle2/actions/workflows/vitest.yml)
+
 **EX-WebThrottle2 is currently in very early development and is not in any way usable.**
 If you are able to help us please see the contributing section below.
 

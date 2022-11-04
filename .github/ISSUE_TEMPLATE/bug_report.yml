@@ -19,7 +19,7 @@ body:
     id: version
     attributes:
       label: Version
-      description: Please provide the version of EX-CommandStation in use.
+      description: Please provide the version of EX-WebThrottle in use.
     validations:
       required: true
 
@@ -29,7 +29,7 @@ body:
       label: Bug description
       description: Please provide a clear and concise description of what the symptoms of the bug are.
       placeholder: |
-        When attempting to drive a locomotive on the main track, it runs forwards, backwards, spins around, jumps up and down, blows the horn, and then stops.
+        When attempting to connect to an EX-CommandStation, I receive an error <error message>.
     validations:
       required: true
 
@@ -39,10 +39,8 @@ body:
       label: Steps to reproduce the bug
       description: Please provide the steps to reproduce the behaviour.
       placeholder: |
-        1. Turn on the CommandStation and track power.
-        2. Connect Engine Driver to the CommandStation.
-        3. Select locomotive with address 123.
-        4. Throttle up to half speed.
+        1. Turn on the CommandStation.
+        2. Attempt to connect EX-WebThrottle to the CommandStation.
     validations:
       required: true
 
@@ -52,7 +50,7 @@ body:
       label: Expected behaviour
       description: Please provide a clear and concise description of what you expected to happen.
       placeholder: |
-        The locomotive should accelerate smoothly to half speed in a forward direction.
+        EX-WebThrottle should connect to the CommandStation without error.
     validations:
       required: true
 
@@ -63,18 +61,7 @@ body:
       description: If applicable, upload any screenshots here.
 
   - type: textarea
-    id: hardware
-    attributes:
-      label: Hardware in use
-      description: Please provide details of hardware in use including microcontroller, motor shield, and any other relevant information.
-      placeholder: |
-        Elegoo Mega2560
-        Arduino R3 motor shield
-    validations:
-      required: true
-
-  - type: textarea
     id: extra-context
     attributes:
       label: Additional context
-      description: Please provide any other relevant information that could help us resolve this issue, for example a customised config.h file.
+      description: Please provide any other relevant information that could help us resolve this issue, for example operating system and web browser.

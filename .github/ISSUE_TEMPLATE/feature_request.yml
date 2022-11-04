@@ -11,7 +11,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Use this template to suggest a new feature for EX-CommandStation.
+        Use this template to suggest a new feature for EX-WebThrottle.
   
   - type: textarea
     id: description

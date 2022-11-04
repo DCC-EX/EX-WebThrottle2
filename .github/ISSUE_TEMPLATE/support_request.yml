@@ -11,7 +11,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Use this template to request support or assistance with EX-CommandStation.
+        Use this template to request support or assistance with EX-WebThrottle.
   
   - type: input
     id: version
@@ -30,10 +30,11 @@ body:
       required: true
 
   - type: textarea
-    id: hardware
+    id: context
     attributes:
-      label: Hardware
-      description: If appropriate, please provide details of the hardware in use.
+      label: Any other context or information
+      description: Provide as much other supporting context and information as possible.
       placeholder: |
-      Elegoo Mega2560
-      Arduino Motor Shield R3
+        Windows 10/11
+        Ubuntu
+        Chrome/Edge/Firefox

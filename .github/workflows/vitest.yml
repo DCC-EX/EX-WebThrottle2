@@ -1,0 +1,30 @@
+name: Vitest Tests
+on:
+  push:
+    branches: ["main", "next-release"]
+    
+  pull_request:
+    branches: ["main", "next-release"]
+  
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Tests
+        run: npm run test:unit
+      - name: 'Report Coverage'
+        if: always() # Also generate the report if tests are failing
+        uses:  davelosert/vitest-coverage-report-action@v1
+        with:
+          json-summary-path: './src/coverage/coverage-summary.json'
+          json-final-path: './src/coverage/coverage-final.json'
+
+

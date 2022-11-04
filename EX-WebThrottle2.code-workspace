@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"yaml.schemas": {
+			"https://json.schemastore.org/github-workflow.json": "file:///home/matthew/Documents/code/dcc/EX-WebThrottle2/.github/workflows/deploy.yml"
+		},
+		"cSpell.words": [
+			"pinia",
+			"vitest",
+			"vuetify"
+		],
+		"cSpell.enableFiletypes": [
+			"!yaml",
+			"!json"
+		],
+	}
+}

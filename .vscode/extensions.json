@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "Vue.volar", 
+    "vuetifyjs.vuetify-vscode",
+    "dbaeumer.vscode-eslint",
+    "streetsidesoftware.code-spell-checker",
+  ]
+}

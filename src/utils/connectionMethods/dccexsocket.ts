@@ -1,4 +1,4 @@
-import { ConnectionHandler } from "../interfaces";
+import {ConnectionHandler} from '../interfaces';
 
 export class DCCExSocket implements ConnectionHandler {
   socket: WebSocket;
@@ -8,7 +8,7 @@ export class DCCExSocket implements ConnectionHandler {
   }
 
   setSpeed(address: number, speed: number): void {
-    this.socket.send(JSON.stringify({ loco: address, speed: speed }));
+    this.socket.send(JSON.stringify({loco: address, speed: speed}));
     console.log(`Set speed of ${address} to ${speed}`);
   }
 }

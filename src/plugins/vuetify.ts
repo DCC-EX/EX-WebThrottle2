@@ -1,7 +1,7 @@
-import { createVuetify, ThemeDefinition } from "vuetify";
-import * as compoenets from "vuetify/components";
-import * as directives from "vuetify/directives";
-import { iconify } from "./iconify";
+import {createVuetify, ThemeDefinition} from 'vuetify';
+import * as compoenets from 'vuetify/components';
+import * as directives from 'vuetify/directives';
+import {iconify} from './iconify';
 
 // <color name="primaryColor">#00a3b9</color>
 // <color name="primaryLightColor">#5bd5eb</color>
@@ -15,28 +15,28 @@ import { iconify } from "./iconify";
 const dccExLight: ThemeDefinition = {
   dark: false,
   colors: {
-    primary: "#00353d",
-    "primary-darken-1": "#001017",
-    secondary: "#00a3b9",
-    "secondary-darken-1": "#007489",
-    error: "#B00020",
-    info: "#2196F3",
-    success: "#4CAF50",
-    warning: "#FB8C00",
+    'primary': '#00353d',
+    'primary-darken-1': '#001017',
+    'secondary': '#00a3b9',
+    'secondary-darken-1': '#007489',
+    'error': '#B00020',
+    'info': '#2196F3',
+    'success': '#4CAF50',
+    'warning': '#FB8C00',
   },
 };
 
 const dccExDark: ThemeDefinition = {
   dark: true,
   colors: {
-    primary: "#00a3b9",
-    "primary-darken-1": "#007489",
-    secondary: "#00353d",
-    "secondary-darken-1": "#001017",
-    error: "#B00020",
-    info: "#2196F3",
-    success: "#4CAF50",
-    warning: "#FB8C00",
+    'primary': '#00a3b9',
+    'primary-darken-1': '#007489',
+    'secondary': '#00353d',
+    'secondary-darken-1': '#001017',
+    'error': '#B00020',
+    'info': '#2196F3',
+    'success': '#4CAF50',
+    'warning': '#FB8C00',
   },
 };
 
@@ -44,21 +44,21 @@ export default createVuetify({
   components: compoenets,
   directives,
   icons: {
-    defaultSet: "mdi",
+    defaultSet: 'mdi',
     sets: {
-      mdi: iconify("mdi"),
-      cib: iconify("cib"),
+      mdi: iconify('mdi'),
+      cib: iconify('cib'),
     },
   },
   theme: {
-    defaultTheme: "dark",
+    defaultTheme: 'dark',
     themes: {
       dark: {
         colors: {
-          primary: "#00a3b9",
-          "primary-darken-1": "#007489",
-          secondary: "#00353d",
-          "secondary-darken-1": "#001017",
+          'primary': '#00a3b9',
+          'primary-darken-1': '#007489',
+          'secondary': '#00353d',
+          'secondary-darken-1': '#001017',
         },
       },
     },

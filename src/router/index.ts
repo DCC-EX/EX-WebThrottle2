@@ -1,25 +1,25 @@
-import * as VueRouter from "vue-router";
+import * as VueRouter from 'vue-router';
 const routes = [
-  { path: "/", redirect: "/throttle" },
+  {path: '/', redirect: '/throttle'},
   {
-    path: "/throttle",
-    name: "throttle",
-    component: () => import("../views/Throttle.vue"),
+    path: '/throttle',
+    name: 'throttle',
+    component: () => import('../views/Throttle.vue'),
   },
   {
-    path: "/locos",
-    name: "locos",
-    component: () => import("../views/Locos.vue"),
+    path: '/locos',
+    name: 'locos',
+    component: () => import('../views/Locos.vue'),
   },
   {
-    path: "/functions",
-    name: "functions",
-    component: () => import("../views/Functions.vue"),
+    path: '/functions',
+    name: 'functions',
+    component: () => import('../views/Functions.vue'),
   },
   {
-    path: "/settings",
-    name: "settings",
-    component: () => import("../views/Settings.vue"),
+    path: '/settings',
+    name: 'settings',
+    component: () => import('../views/Settings.vue'),
   },
 ];
 

@@ -1,4 +1,4 @@
-import type { ConnectionHandler } from "../interfaces";
+import type {ConnectionHandler} from '../interfaces';
 
 /**
  * Serial connection handler

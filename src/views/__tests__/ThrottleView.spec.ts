@@ -1,21 +1,21 @@
-import { describe, test, expect } from "vitest";
+import {describe, test, expect} from 'vitest';
 
-import { mount } from "@vue/test-utils";
-import Throttle from "../Throttle.vue";
+import {mount} from '@vue/test-utils';
+import Throttle from '../Throttle.vue';
 
-import { createVuetify } from "vuetify";
-import * as components from "vuetify/components";
-import * as directives from "vuetify/directives";
+import {createVuetify} from 'vuetify';
+import * as components from 'vuetify/components';
+import * as directives from 'vuetify/directives';
 
-describe("HelloWorld", () => {
-  const vuetify = createVuetify({ components, directives });
-  test("renders properly", () => {
+describe('HelloWorld', () => {
+  const vuetify = createVuetify({components, directives});
+  test('renders properly', () => {
     const wrapper = mount(Throttle, {
       global: {
         plugins: [vuetify],
       },
     });
-    expect(wrapper.text()).toContain("WebThrottle");
+    expect(wrapper.text()).toContain('WebThrottle');
   });
 
   // test("logic works", async () => {
@@ -29,5 +29,5 @@ describe("HelloWorld", () => {
 
   // await wrapper.get('#reset').trigger('click');
   // expect(wrapper.text()).toContain('0');
-  //});
+  // });
 });

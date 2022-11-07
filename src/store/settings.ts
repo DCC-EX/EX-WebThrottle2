@@ -1,5 +1,5 @@
-import { defineStore } from "pinia";
-import { STORAGE_KEYS } from "../utils/enums";
+import {defineStore} from 'pinia';
+import {STORAGE_KEYS} from '../utils/enums';
 
 export enum CONNECTION_TYPE {
   SERIAL,
@@ -18,10 +18,10 @@ interface State {
   connections: Connection[];
 }
 
-export const settingsStore = defineStore("settings", {
+export const settingsStore = defineStore('settings', {
   state: (): State => {
     const savedConnections = localStorage.getItem(
-      STORAGE_KEYS.SAVED_CONNECTIONS
+      STORAGE_KEYS.SAVED_CONNECTIONS,
     );
     if (savedConnections) {
       return {
@@ -40,7 +40,7 @@ export const settingsStore = defineStore("settings", {
       this.connections.push(conn);
       localStorage.setItem(
         STORAGE_KEYS.SAVED_CONNECTIONS,
-        JSON.stringify(this.connections)
+        JSON.stringify(this.connections),
       );
     },
   },

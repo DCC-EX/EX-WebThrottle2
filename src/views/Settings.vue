@@ -1,19 +1,38 @@
 <template>
-  <div id="settings-window" class="section">
+  <div
+    id="settings-window"
+    class="section"
+  >
     <div class="row">
-      <div class="settings-heading hdng">Settings</div>
+      <div class="settings-heading hdng">
+        Settings
+      </div>
     </div>
     <div class="row settings-content">
       <div class="side-panel">
         <ul>
-          <li id="settings-general">General</li>
-          <li id="settings-storage">Storage</li>
-          <li id="settings-app">App</li>
+          <li id="settings-general">
+            General
+          </li>
+          <li id="settings-storage">
+            Storage
+          </li>
+          <li id="settings-app">
+            App
+          </li>
         </ul>
       </div>
-      <div class="settings-panel scrollbar" id="settings-panel">
-        <div class="settings-section" id="general-section">
-          <div class="settings-subheading">General</div>
+      <div
+        id="settings-panel"
+        class="settings-panel scrollbar"
+      >
+        <div
+          id="general-section"
+          class="settings-section"
+        >
+          <div class="settings-subheading">
+            General
+          </div>
           <div class="settings-group">
             <div class="row setting-entry">
               <label class="setting-label"> Theme </label>
@@ -24,9 +43,15 @@
                   name="themeselector"
                   title="Change Theme"
                 >
-                  <option value="simple">Simple</option>
-                  <option value="metallic">Metallic</option>
-                  <option value="dark">Dark</option>
+                  <option value="simple">
+                    Simple
+                  </option>
+                  <option value="metallic">
+                    Metallic
+                  </option>
+                  <option value="dark">
+                    Dark
+                  </option>
                 </select>
               </div>
             </div>
@@ -39,31 +64,42 @@
                   name="throttleselector"
                   title="Change Throttle Controller"
                 >
-                  <option value="vertical">Vertical</option>
-                  <option value="knob">Knob</option>
-                  <option value="circular">Circular</option>
+                  <option value="vertical">
+                    Vertical
+                  </option>
+                  <option value="knob">
+                    Knob
+                  </option>
+                  <option value="circular">
+                    Circular
+                  </option>
                 </select>
               </div>
             </div>
           </div>
         </div>
-        <div class="settings-section" id="storage-section">
-          <div class="settings-subheading">Storage</div>
+        <div
+          id="storage-section"
+          class="settings-section"
+        >
+          <div class="settings-subheading">
+            Storage
+          </div>
           <div class="settings-group">
             <!--<div class="row setting-entry">
                                         <label class="setting-label">
                                             Some placeholder
                                         </label>
                                         <div class="setting-content">
-                                            <input /> 
-                                        </div> 
+                                            <input />
+                                        </div>
                                     </div>
                                     <div class="row setting-entry">
                                         <label class="setting-label">
                                             Some placeholder
                                         </label>
                                         <div class="setting-content">
-                                            <input /> 
+                                            <input />
                                         </div>
                                     </div>-->
             <!--<div class="hr"></div>-->
@@ -89,8 +125,13 @@
               </label>
             </div>
           </div>
-          <div class="settings-section" id="app-section">
-            <div class="settings-subheading">App</div>
+          <div
+            id="app-section"
+            class="settings-section"
+          >
+            <div class="settings-subheading">
+              App
+            </div>
             <div class="settings-group">
               <div class="row setting-entry">
                 <label class="setting-label"> Install as an app </label>
@@ -106,10 +147,10 @@
     </div>
   </div>
 </template>
-<style scoped></style>
 <script lang="ts">
 export default {
-  name: "Settings",
+  name: 'Settings',
 };
 </script>
 <script setup lang="ts"></script>
+<style scoped></style>

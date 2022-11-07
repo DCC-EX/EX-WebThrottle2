@@ -1,31 +1,41 @@
 <template>
-  <div id="fn-map-window" class="section">
+  <div
+    id="fn-map-window"
+    class="section"
+  >
     <div class="row settings-heading">
-      <div class="column-7 pl0 hdng">Function Mappings</div>
+      <div class="column-7 pl0 hdng">
+        Function Mappings
+      </div>
       <div class="column-3 pr0">
         <div class="option-btns formbuilder-button row">
-          <div class="column-2">&nbsp;</div>
+          <div class="column-2">
+&nbsp;
+          </div>
           <div class="column-4">
-            <button id="add-map" class="add-loco-btn btn">
-              <span class="icon-plus"></span> New Map
+            <button
+              id="add-map"
+              class="add-loco-btn btn"
+            >
+              <span class="icon-plus"/> New Map
             </button>
           </div>
           <div class="column-2">
             <button
-              class="add-loco-btn btn"
               id="export-all-maps"
+              class="add-loco-btn btn"
               title="Export Map"
             >
-              <span class="icon-upload3"></span>
+              <span class="icon-upload3"/>
             </button>
           </div>
           <div class="column-2">
             <button
-              class="add-loco-btn btn"
               id="import-all-maps"
+              class="add-loco-btn btn"
               title="Import Map"
             >
-              <span class="icon-download3"></span>
+              <span class="icon-download3"/>
             </button>
           </div>
         </div>
@@ -33,9 +43,12 @@
     </div>
     <div class="row settings-content">
       <div class="side-panel">
-        <ul id="function-mappings"></ul>
+        <ul id="function-mappings"/>
       </div>
-      <div class="settings-panel" id="mapping-panel">
+      <div
+        id="mapping-panel"
+        class="settings-panel"
+      >
         <div class="settings-group placeholder">
           <p>Select a Map</p>
         </div>
@@ -43,10 +56,10 @@
     </div>
   </div>
 </template>
-<style scoped></style>
 <script lang="ts">
 export default {
-  name: "Functions",
+  name: 'Functions',
 };
 </script>
 <script setup lang="ts"></script>
+<style scoped></style>

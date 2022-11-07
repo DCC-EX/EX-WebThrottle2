@@ -4,22 +4,22 @@ const routes = [
   {
     path: "/throttle",
     name: "throttle",
-    component: () => import("@/views/Throttle.vue"),
+    component: () => import("../views/Throttle.vue"),
   },
   {
     path: "/locos",
     name: "locos",
-    component: () => import("@/views/Locos.vue"),
+    component: () => import("../views/Locos.vue"),
   },
   {
     path: "/functions",
     name: "functions",
-    component: () => import("@/views/Functions.vue"),
+    component: () => import("../views/Functions.vue"),
   },
   {
     path: "/settings",
     name: "settings",
-    component: () => import("@/views/Settings.vue"),
+    component: () => import("../views/Settings.vue"),
   },
 ];
 

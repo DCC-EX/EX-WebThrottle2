@@ -2,10 +2,15 @@
   <v-app>
     <v-app-bar>
       <template #prepend>
-        <v-app-bar-nav-icon icon="mdi:menu" @click.stop="toggleNav()" />
+        <v-app-bar-nav-icon
+          icon="mdi:menu"
+          @click.stop="toggleNav()"
+        />
       </template>
 
-      <v-app-bar-title id="title">{{ getTitle }}</v-app-bar-title>
+      <v-app-bar-title id="title">
+        {{ getTitle }}
+      </v-app-bar-title>
 
       <template #append>
         <v-switch
@@ -16,41 +21,44 @@
           true-icon="mdi:power-on"
           false-icon="mdi:power-off"
         >
-          <template v-slot:label>
+          <template #label>
             <v-icon
               icon="mdi:power"
               :style="powerModel == `on` ? 'color: green;' : 'color: red;'"
-            ></v-icon>
+            />
           </template>
         </v-switch>
       </template>
     </v-app-bar>
     <v-navigation-drawer v-model="showNavBar">
       <v-list nav>
-        <v-list-item v-for="(item, i) in getNavList" :key="i" :to="item.to">
-          <template v-slot:prepend>
-            <v-icon :icon="item.icon"></v-icon>
+        <v-list-item
+          v-for="(item, i) in getNavList"
+          :key="i"
+          :to="item.to"
+        >
+          <template #prepend>
+            <v-icon :icon="item.icon"/>
           </template>
-          <v-list-item-title v-text="item.title"></v-list-item-title>
+          <v-list-item-title v-text="item.title"/>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-main>
-      <router-view></router-view>
+      <router-view/>
     </v-main>
     <v-footer height="25">
       <v-row no-gutters>
         <v-col cols="2">
           <v-switch
-            v-model="themeModel"
             id="themeSwitch"
+            v-model="themeModel"
             inset
             true-icon="mdi:weather-sunny"
             false-icon="mdi:moon-waning-crescent"
             true-value="dccExLight"
             false-value="dccExDark"
-          >
-          </v-switch>
+          />
         </v-col>
         <v-col>
           {{ new Date().getFullYear() }} — <strong>DCC EX Team</strong>
@@ -110,17 +118,17 @@
     </div> -->
 </template>
 <script lang="ts" setup>
-import { useTheme } from "vuetify";
-import { computed, ref, watch } from "vue";
-import { useGlobalStore } from "./store/global";
-import { storeToRefs } from "pinia";
+import {useTheme} from 'vuetify';
+import {computed, ref, watch} from 'vue';
+import {useGlobalStore} from './store/global';
+import {storeToRefs} from 'pinia';
 
 const theme = useTheme();
 const globalStore = useGlobalStore();
-const { getTitle, showNavBar, getNavList } = storeToRefs(globalStore);
+const {getTitle, showNavBar, getNavList} = storeToRefs(globalStore);
 const toggleNav = computed(() => globalStore.toggleNavBar);
-const themeModel = ref("dccExDark");
-const powerModel = ref("off");
+const themeModel = ref('dccExDark');
+const powerModel = ref('off');
 
 watch(themeModel, (newmodel, oldold) => {
   theme.global.name.value = newmodel;

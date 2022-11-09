@@ -1,216 +1,295 @@
 <template>
-    <div id="throttle-window" class="section">
-        <div Class="details-panel" id="details-panel">
-            <div class="row">
-                <div class="column-5">
-                    <div class="loco-list-container row">
-                        <div class="column-5 loco-list-ctrl">
-                            <label for="ex-locoid" class="formbuilder-text-label">
-                                Locomotive ID <span class="formbuilder-required">*</span>
-                            </label>
-                            <input id="ex-locoid" type="text" loco-cv="0" name="Locomotives" />
-                        </div>
-                        <div class="column-2 formbuilder-button acquire-wrap">
-                            <button
-                                id="button-getloco"
-                                class="acq-loco-btn btn"
-                                data-acquired="false"
-                            >
-                                <span class="icon-circle-right"></span>
-                            </button>
-                        </div>
-                        <div class="column-2 formbuilder-button acquire-wrap"></div>
-                    </div>
-                </div>
-                <div class="server-button column-5">
-                    <select
-                        id="select-method"
-                        class="select-control select-xl"
-                        name="selectMethod"
-                        title="Change the connection method"
-                    >
-                        <option value="serial">Serial</option>
-                        <option value="emulator">Emulator</option>
-                    </select>
-                    <button
-                        type="button"
-                        class="btn-default btn"
-                        title="Connect to the Command Station"
-                        aria-state="connected"
-                        name="button-connect"
-                        access="false"
-                        id="button-connect"
-                    >
-                        <span class="con-ind"></span>Connect DCC++ EX
-                    </button>
-                    <!-- <button class="btn-grey" id="fs-toggle" state="ws" title="Fullscreen">&#10530;</button> -->
-                </div>
+  <div
+    id="throttle-window"
+    class="section"
+  >
+    <div
+      id="details-panel"
+      Class="details-panel"
+    >
+      <div class="row">
+        <div class="column-5">
+          <div class="loco-list-container row">
+            <div class="column-5 loco-list-ctrl">
+              <label
+                for="ex-locoid"
+                class="formbuilder-text-label"
+              >
+                Locomotive ID <span class="formbuilder-required">*</span>
+              </label>
+              <input
+                id="ex-locoid"
+                type="text"
+                loco-cv="0"
+                name="Locomotives"
+              >
             </div>
-            <hr />
-        </div>
-        <div class="row pos-rel">
-            <button
-                type="button"
-                class="btn-default btn btn-hide"
-                title="Hide the top bar"
-                name="button-hide"
-                access="false"
-                id="button-hide"
-            >
-                <span class="icon-circle-up"></span>
-            </button>
-        </div>
-
-        <div class="row flex-center">
-            <div class="column-5 mobile-100 throttle-container">
-                <div class="row mobile-100 width100 flexx">
-                    <div class="column-7 flexx">
-                        <div class="flexx btns">
-                            <button
-                                type="button"
-                                title="Decrease speed"
-                                class="btn-default btn btn btn-speed btn-left"
-                                name="button-left"
-                                access="false"
-                                id="button-left"
-                            >
-                                <span class="left" style="line-height: 12px">&nbsp;-&nbsp;</span>
-                            </button>
-                        </div>
-                        <div class="Throttlewrap">
-                            <div id="vertical-throttle" class="vertical-throttle speedController">
-                                <div id="v-throttle"></div>
-                                <div id="speed-indicator" class="progress-numb">0</div>
-                            </div>
-                            <div id="knobthrottle" class="speedController">
-                                <input type="text" class="rotarySwitch" value="0" />
-                                <div id="knob-value" class="knob-value">0</div>
-                            </div>
-                            <div
-                                id="circular-throttle"
-                                class="circular-throttle speedController"
-                            ></div>
-                        </div>
-                        <div class="flexx btns">
-                            <button
-                                type="button"
-                                title="Increase speed"
-                                class="btn-default btn btn-speed btn-right"
-                                name="button-right"
-                                access="false"
-                                id="button-right"
-                            >
-                                <span class="right">&nbsp;+&nbsp;</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="column-2">
-                        <div class="em-btn">
-                            <button class="em-stop" id="emergency-stop" title="Emergency Stop">
-                                <span class="icon-stop"></span>
-                            </button>
-                        </div>
-                        <div class="dir-toggle">
-                            <button
-                                class="dir-btn forward selected"
-                                id="dir-f"
-                                aria-label="forward"
-                            >
-                                <span class="arrow-up icon-up"></span>
-                            </button>
-                            <button class="dir-btn stop" id="dir-S" aria-label="stop">
-                                <span class="stop"></span>
-                            </button>
-                            <button class="dir-btn backward" id="dir-b" aria-label="backward">
-                                <span class="arrow-down icon-down"></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+            <div class="column-2 formbuilder-button acquire-wrap">
+              <button
+                id="button-getloco"
+                class="acq-loco-btn btn"
+                data-acquired="false"
+              >
+                <span class="icon-circle-right"/>
+              </button>
             </div>
-            <div class="functionKeys column-5 mobile-100">
-                <div class="row mobile-100">
-                    <div
-                        class="power-slider column-4 formbuilder-button"
-                        id="power-switch-div"
-                        title="Enable track power"
-                    >
-                        <label class="switch">
-                            <input type="checkbox" id="power-switch" />
-                            <span class="slider round"></span>
-                        </label>
-                        <span class="pow-status"> Power <span id="power-status">Off</span> </span>
-                    </div>
-                    <div class="note-msg column-6">
-                        <select
-                            id="select-map"
-                            class="btn select-map select-control"
-                            name="selectMap"
-                            title="Load a Saved Map"
-                        ></select>
-                    </div>
-                </div>
-                <div class="row" id="fn-wrapper"></div>
-            </div>
+            <div class="column-2 formbuilder-button acquire-wrap"/>
+          </div>
         </div>
-
-        <div class="row">
-            <div class="console-slider column-4" title="Enable the debug console">
-                <label class="debug switch">
-                    <input type="checkbox" id="console-toggle" />
-                    <span class="slider round debug-slider"></span>
-                </label>
-                <span class="debug-status"> Debug Console </span>
-            </div>
+        <div class="server-button column-5">
+          <select
+            id="select-method"
+            class="select-control select-xl"
+            name="selectMethod"
+            title="Change the connection method"
+          >
+            <option value="serial">
+              Serial
+            </option>
+            <option value="emulator">
+              Emulator
+            </option>
+          </select>
+          <button
+            id="button-connect"
+            type="button"
+            class="btn-default btn"
+            title="Connect to the Command Station"
+            aria-state="connected"
+            name="button-connect"
+            access="false"
+          >
+            <span class="con-ind"/>Connect DCC++ EX
+          </button>
+          <!-- <button class="btn-grey" id="fs-toggle" state="ws" title="Fullscreen">&#10530;</button> -->
         </div>
-        <div id="debug-console" hidden="true">
-            <hr />
-            <div class="row mobile-margin-top20">
-                <div class="formbuilder-text column-8">
-                    <input
-                        placeholder="Direct Command (without &lt; &gt;)"
-                        class="form-control"
-                        name="cmd-direct"
-                        access="false"
-                        id="cmd-direct"
-                    />
-                </div>
-
-                <div class="formbuilder-button column-1">
-                    <button
-                        type="button"
-                        class="btn-default btn"
-                        name="sendCmd"
-                        access="false"
-                        data-acquired="false"
-                        id="button-sendCmd"
-                    >
-                        Send
-                    </button>
-                </div>
-                <div class="formbuilder-button dcmd-clear column-1">
-                    <button
-                        type="button"
-                        class="btn-default btn"
-                        name="clearLog"
-                        access="false"
-                        data-acquired="false"
-                        id="button-clearLog"
-                    >
-                        Clear Log
-                    </button>
-                </div>
-            </div>
-            <div class="log-msg" id="log-box"></div>
-        </div>
+      </div>
+      <hr >
     </div>
+    <div class="row pos-rel">
+      <button
+        id="button-hide"
+        type="button"
+        class="btn-default btn btn-hide"
+        title="Hide the top bar"
+        name="button-hide"
+        access="false"
+      >
+        <span class="icon-circle-up"/>
+      </button>
+    </div>
+
+    <div class="row flex-center">
+      <div class="column-5 mobile-100 throttle-container">
+        <div class="row mobile-100 width100 flexx">
+          <div class="column-7 flexx">
+            <div class="flexx btns">
+              <button
+                id="button-left"
+                type="button"
+                title="Decrease speed"
+                class="btn-default btn btn btn-speed btn-left"
+                name="button-left"
+                access="false"
+              >
+                <span
+                  class="left"
+                  style="line-height: 12px"
+                >&nbsp;-&nbsp;</span>
+              </button>
+            </div>
+            <div class="Throttlewrap">
+              <div
+                id="vertical-throttle"
+                class="vertical-throttle speedController"
+              >
+                <div id="v-throttle"/>
+                <div
+                  id="speed-indicator"
+                  class="progress-numb"
+                >
+                  0
+                </div>
+              </div>
+              <div
+                id="knobthrottle"
+                class="speedController"
+              >
+                <input
+                  type="text"
+                  class="rotarySwitch"
+                  value="0"
+                >
+                <div
+                  id="knob-value"
+                  class="knob-value"
+                >
+                  0
+                </div>
+              </div>
+              <div
+                id="circular-throttle"
+                class="circular-throttle speedController"
+              />
+            </div>
+            <div class="flexx btns">
+              <button
+                id="button-right"
+                type="button"
+                title="Increase speed"
+                class="btn-default btn btn-speed btn-right"
+                name="button-right"
+                access="false"
+              >
+                <span class="right">&nbsp;+&nbsp;</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="column-2">
+            <div class="em-btn">
+              <button
+                id="emergency-stop"
+                class="em-stop"
+                title="Emergency Stop"
+              >
+                <span class="icon-stop"/>
+              </button>
+            </div>
+            <div class="dir-toggle">
+              <button
+                id="dir-f"
+                class="dir-btn forward selected"
+                aria-label="forward"
+              >
+                <span class="arrow-up icon-up"/>
+              </button>
+              <button
+                id="dir-S"
+                class="dir-btn stop"
+                aria-label="stop"
+              >
+                <span class="stop"/>
+              </button>
+              <button
+                id="dir-b"
+                class="dir-btn backward"
+                aria-label="backward"
+              >
+                <span class="arrow-down icon-down"/>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="functionKeys column-5 mobile-100">
+        <div class="row mobile-100">
+          <div
+            id="power-switch-div"
+            class="power-slider column-4 formbuilder-button"
+            title="Enable track power"
+          >
+            <label class="switch">
+              <input
+                id="power-switch"
+                type="checkbox"
+              >
+              <span class="slider round"/>
+            </label>
+            <span class="pow-status">
+              Power <span id="power-status">Off</span>
+            </span>
+          </div>
+          <div class="note-msg column-6">
+            <select
+              id="select-map"
+              class="btn select-map select-control"
+              name="selectMap"
+              title="Load a Saved Map"
+            />
+          </div>
+        </div>
+        <div
+          id="fn-wrapper"
+          class="row"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div
+        class="console-slider column-4"
+        title="Enable the debug console"
+      >
+        <label class="debug switch">
+          <input
+            id="console-toggle"
+            type="checkbox"
+          >
+          <span class="slider round debug-slider"/>
+        </label>
+        <span class="debug-status"> Debug Console </span>
+      </div>
+    </div>
+    <div
+      id="debug-console"
+      hidden="true"
+    >
+      <hr >
+      <div class="row mobile-margin-top20">
+        <div class="formbuilder-text column-8">
+          <input
+            id="cmd-direct"
+            placeholder="Direct Command (without &lt; &gt;)"
+            class="form-control"
+            name="cmd-direct"
+            access="false"
+          >
+        </div>
+
+        <div class="formbuilder-button column-1">
+          <button
+            id="button-sendCmd"
+            type="button"
+            class="btn-default btn"
+            name="sendCmd"
+            access="false"
+            data-acquired="false"
+          >
+            Send
+          </button>
+        </div>
+        <div class="formbuilder-button dcmd-clear column-1">
+          <button
+            id="button-clearLog"
+            type="button"
+            class="btn-default btn"
+            name="clearLog"
+            access="false"
+            data-acquired="false"
+          >
+            Clear Log
+          </button>
+        </div>
+      </div>
+      <div
+        id="log-box"
+        class="log-msg"
+      />
+    </div>
+  </div>
 </template>
+<script lang="ts">
+export default {
+  name: 'Throttle',
+};
+</script>
+<script setup lang="ts"></script>
 <style scoped>
-    /* #throttle-window {
+/* #throttle-window {
         box-shadow: 0 0 5px 0px #777777;
         overflow: auto;
-        /* height: auto; 
+        /* height: auto;
         padding-bottom: 1px;
     }
 
@@ -729,7 +808,7 @@
         float: left;
         margin: 11px;
     }
-    /* The Close Button 
+    /* The Close Button
     .close {
         color: #aaaaaa;
         float: right;
@@ -802,7 +881,7 @@
         outline: none;
     }
 
-    /* Style The Dropdown Button 
+    /* Style The Dropdown Button
     .dropbtn {
         background-color: #00a3b9;
         color: white;
@@ -813,13 +892,13 @@
         vertical-align: middle;
         border-radius: 4px;
     }
-    /* The container <div> - needed to position the dropdown content 
+    /* The container <div> - needed to position the dropdown content
     .dropdown {
         position: relative;
         display: inline-block;
     }
 
-    /* Dropdown Content (Hidden by Default) 
+    /* Dropdown Content (Hidden by Default)
     .dropdown-content {
         display: none;
         position: absolute;
@@ -830,7 +909,7 @@
         right: 0;
     }
 
-    /* Links inside the dropdown 
+    /* Links inside the dropdown
     .dropdown-content a {
         color: black;
         padding: 12px 16px;
@@ -841,25 +920,25 @@
     .dropdown-content .hr {
         border-bottom: 1px solid #dddddd;
     }
-    /* Change color of dropdown links on hover 
+    /* Change color of dropdown links on hover
     .dropdown-content a:hover {
         background-color: #f1f1f1;
     }
 
-    /* Show the dropdown menu on hover 
+    /* Show the dropdown menu on hover
     .dropdown:hover .dropdown-content {
         display: block;
     }
 
-    /* Change the background color of the dropdown button when the dropdown content is shown 
+    /* Change the background color of the dropdown button when the dropdown content is shown
     .dropdown:hover .dropbtn {
         background-color: #00899a;
     }
-    /* Circular Slider Code 
+    /* Circular Slider Code
     .circular-throttle {
         margin: 0 5px;
     }
-    /* Vertical Slider Code 
+    /* Vertical Slider Code
     .vertical-throttle {
         width: 64px;
         position: relative;
@@ -902,7 +981,7 @@
         box-shadow: 0 0 3px #8c8c8c inset;
     }
 
-    /* support: IE8 - See #6727 
+    /* support: IE8 - See #6727
     .ui-slider.ui-state-disabled .ui-slider-handle,
     .ui-slider.ui-state-disabled .ui-slider-range {
         filter: inherit;
@@ -998,7 +1077,7 @@
         top: 0;
     }
 
-    /* Add Loco Styles 
+    /* Add Loco Styles
 
     .loco-list-container {
         position: relative;
@@ -1052,12 +1131,12 @@
     position: absolute;
     top: -8px;
     left: 15px;
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 12px solid transparent;
     border-right: 12px solid transparent;
     border-bottom: 12px solid #ffffff;
-} 
+}
     .add-loco-form {
         width: 380px;
         display: none;
@@ -1247,7 +1326,7 @@
         justify-content: center;
         align-items: center;
     }
-    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other 
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other
     @media screen and (max-width: 1200px) {
         .column-4.mobile-100,
         .column-6.mobile-100,
@@ -1271,4 +1350,3 @@
         }
     } */
 </style>
-<script setup lang="ts"></script>

@@ -98,6 +98,5 @@ const tab = ref('general');
 const currentTheme = ref(getTheme);
 const currentController = ref(getController);
 
-watch(currentTheme);
 </script>
 <style scoped></style>

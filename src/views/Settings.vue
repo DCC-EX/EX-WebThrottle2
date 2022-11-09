@@ -1,156 +1,103 @@
 <template>
-  <div
-    id="settings-window"
-    class="section"
-  >
-    <div class="row">
-      <div class="settings-heading hdng">
-        Settings
-      </div>
-    </div>
-    <div class="row settings-content">
-      <div class="side-panel">
-        <ul>
-          <li id="settings-general">
-            General
-          </li>
-          <li id="settings-storage">
-            Storage
-          </li>
-          <li id="settings-app">
-            App
-          </li>
-        </ul>
-      </div>
-      <div
-        id="settings-panel"
-        class="settings-panel scrollbar"
-      >
-        <div
-          id="general-section"
-          class="settings-section"
-        >
-          <div class="settings-subheading">
-            General
-          </div>
-          <div class="settings-group">
-            <div class="row setting-entry">
-              <label class="setting-label"> Theme </label>
-              <div class="setting-content">
-                <select
-                  id="theme-selector"
-                  class="btn theme-selector select-control"
-                  name="themeselector"
-                  title="Change Theme"
-                >
-                  <option value="simple">
-                    Simple
-                  </option>
-                  <option value="metallic">
-                    Metallic
-                  </option>
-                  <option value="dark">
-                    Dark
-                  </option>
-                </select>
-              </div>
-            </div>
-            <div class="row setting-entry">
-              <label class="setting-label"> Speed Controller </label>
-              <div class="setting-content">
-                <select
-                  id="throttle-selector"
-                  class="btn throttle-selector select-control"
-                  name="throttleselector"
-                  title="Change Throttle Controller"
-                >
-                  <option value="vertical">
-                    Vertical
-                  </option>
-                  <option value="knob">
-                    Knob
-                  </option>
-                  <option value="circular">
-                    Circular
-                  </option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          id="storage-section"
-          class="settings-section"
-        >
-          <div class="settings-subheading">
-            Storage
-          </div>
-          <div class="settings-group">
-            <!--<div class="row setting-entry">
-                                        <label class="setting-label">
-                                            Some placeholder
-                                        </label>
-                                        <div class="setting-content">
-                                            <input />
-                                        </div>
-                                    </div>
-                                    <div class="row setting-entry">
-                                        <label class="setting-label">
-                                            Some placeholder
-                                        </label>
-                                        <div class="setting-content">
-                                            <input />
-                                        </div>
-                                    </div>-->
-            <!--<div class="hr"></div>-->
-            <div class="row setting-entry">
-              <label class="setting-label">
-                <button id="backup-app-settings">
-                  &#10514;&nbsp; Export App data
-                </button>
-              </label>
-            </div>
-            <div class="row setting-entry">
-              <label class="setting-label">
-                <button id="restore-app-settings">
-                  &#10515;&nbsp; Import App data
-                </button>
-              </label>
-            </div>
-            <div class="row setting-entry">
-              <label class="setting-label">
-                <button id="wipe-app-settings">
-                  &#10539;&nbsp; Wipe App data
-                </button>
-              </label>
-            </div>
-          </div>
-          <div
-            id="app-section"
-            class="settings-section"
+  <v-container>
+    <v-row no-gutters>
+      <v-col>
+        <v-toolbar color="primary">
+          <v-toolbar-title>Settings</v-toolbar-title>
+        </v-toolbar>
+
+        <div class="d-flex flex-row">
+          <v-tabs
+            v-model="tab"
+            color="primary"
           >
-            <div class="settings-subheading">
+            <v-tab value="general">
+              <v-icon start>
+                mdi:cog-box
+              </v-icon>
+              General
+            </v-tab>
+            <v-tab value="storage">
+              <v-icon start>
+                mdi:zip-disk
+              </v-icon>
+              Storage
+            </v-tab>
+            <v-tab value="app">
+              <v-icon start>
+                mdi:application
+              </v-icon>
               App
-            </div>
-            <div class="settings-group">
-              <div class="row setting-entry">
-                <label class="setting-label"> Install as an app </label>
-                <label class="setting-label">
-                  <button class="add-button">Install</button>
-                  <label class="installed-label">App Installed</label>
-                </label>
-              </div>
-            </div>
-          </div>
+            </v-tab>
+          </v-tabs>
+          <v-window v-model="tab">
+            <v-window-item value="general">
+              <v-card
+                flat
+                height="300"
+              >
+                <v-card-actions>
+                  <v-combobox
+                    v-model="currentTheme"
+                    label="theme"
+                    variant="solo"
+                    :items="['Light', 'Dark']"
+                  />
+                  <v-combobox
+                    v-model="currentController"
+                    label="speedController"
+                    variant="solo"
+                    :items="['Vertical', 'Knob', 'Circular', 'Horizontal']"
+                  />
+                </v-card-actions>
+              </v-card>
+            </v-window-item>
+            <v-window-item value="storage">
+              <v-card
+                flat
+                height="300"
+              >
+                <v-card-actions>
+                  <v-btn>Export App Data</v-btn>
+                  <v-btn>Import App Data</v-btn>
+                  <v-btn color="error">
+                    Wipe App Data
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-window-item>
+            <v-window-item value="app">
+              <v-card
+                flat
+                height="300"
+              >
+                <v-card-actions>
+                  <v-btn>Install as App</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-window-item>
+          </v-window>
         </div>
-      </div>
-    </div>
-  </div>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 <script lang="ts">
 export default {
-  name: 'Settings',
+  name: 'SettingsPage',
 };
 </script>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import {storeToRefs} from 'pinia';
+import {ref, computed} from 'vue';
+import {useSettingsStore} from '../store/settings';
+const settingsStore = useSettingsStore();
+const {getTheme, getController} = storeToRefs(settingsStore);
+const setTheme = computed(settingsStore.setTheme);
+const tab = ref('general');
+const currentTheme = ref(getTheme);
+const currentController = ref(getController);
+
+watch(currentTheme);
+</script>
 <style scoped></style>

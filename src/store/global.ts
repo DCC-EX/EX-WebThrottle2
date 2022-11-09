@@ -1,21 +1,21 @@
 import {defineStore} from 'pinia';
 
 interface NavLink {
-    icon: string;
-    to: string;
-    title: string;
+  icon: string;
+  to: string;
+  title: string;
 }
 
 interface State {
-    title: string;
-    showNavBar: boolean;
-    NavLinks: NavLink[];
+  title: string;
+  showNavBar: boolean;
+  NavLinks: NavLink[];
 }
 
 export const useGlobalStore = defineStore('global', {
   state: (): State => {
     return {
-      title: 'WebThrottle-EX',
+      title: 'ExWebThrottle',
       showNavBar: false,
       NavLinks: [
         {icon: 'mdi:remote', to: 'throttle', title: 'Throttles'},

@@ -34,8 +34,9 @@ export default defineConfig({
       provider: "istanbul",
       reporter: ["text", "json-summary", "json"],
     },
+    setupFiles: ["./__tests__/setupFile.ts"],
     deps: {
-      external: ["vuetify"],
+      //external: ["vuetify"],
       inline: ["vuetify"],
     },
   },

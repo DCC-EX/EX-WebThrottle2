@@ -1,5 +1,5 @@
 import {h} from 'vue';
-import type {IconSet, IconProps, IconAliases} from 'vuetify';
+import type {IconSet, IconProps} from 'vuetify';
 import {Icon} from '@iconify/vue';
 
 interface IconifyProps extends IconProps {

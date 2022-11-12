@@ -13,16 +13,9 @@ import {createPinia} from 'pinia';
 import router from './router';
 
 // Plugins
-import {registerPlugins} from '@/plugins';
 import vuetify from './plugins/vuetify';
 
 const pinia = createPinia();
 const app = createApp(App);
 
-registerPlugins();
-
-app
-  .use(vuetify)
-  .use(router)
-  .use(pinia)
-  .mount('#app');
+app.use(vuetify).use(router).use(pinia).mount('#app');

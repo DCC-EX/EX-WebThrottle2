@@ -1,23 +1,35 @@
-import {createRouter, createWebHistory} from 'vue-router';
-import HomeView from '../views/HomeView.vue';
+import * as VueRouter from 'vue-router';
+const routes = [
+  {path: '/', redirect: '/throttle'},
+  {
+    path: '/throttle',
+    name: 'throttle',
+    component: () => import('../views/Throttle.vue'),
+  },
+  {
+    path: '/locos',
+    name: 'locos',
+    component: () => import('../views/Locos.vue'),
+  },
+  {
+    path: '/functions',
+    name: 'functions',
+    component: () => import('../views/Functions.vue'),
+  },
+  {
+    path: '/settings',
+    name: 'settings',
+    component: () => import('../views/Settings.vue'),
+  },
+];
 
-const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: HomeView,
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
-    },
-  ],
+// 3. Create the router instance and pass the `routes` option
+// You can pass in additional options here, but let's
+// keep it simple for now.
+const router = VueRouter.createRouter({
+  // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
+  history: VueRouter.createWebHashHistory(),
+  routes, // short for `routes: routes`
 });
 
 export default router;

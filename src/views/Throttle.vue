@@ -286,7 +286,8 @@ export default {
 </script>
 <script setup lang="ts"></script>
 <style scoped>
-/* #throttle-window {
+/*
+#throttle-window {
         box-shadow: 0 0 5px 0px #777777;
         overflow: auto;
         /* height: auto;

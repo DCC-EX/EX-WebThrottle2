@@ -61,7 +61,8 @@
           >
             <span class="con-ind"/>Connect DCC++ EX
           </button>
-          <!-- <button class="btn-grey" id="fs-toggle" state="ws" title="Fullscreen">&#10530;</button> -->
+          <!-- <button class="btn-grey" id="fs-toggle"
+          state="ws" title="Fullscreen"> &#10530;</button> -->
         </div>
       </div>
       <hr >
@@ -281,7 +282,7 @@
 </template>
 <script lang="ts">
 export default {
-  name: 'Throttle',
+  name: 'ExThrottle',
 };
 </script>
 <script setup lang="ts"></script>
@@ -1327,7 +1328,8 @@ export default {
         justify-content: center;
         align-items: center;
     }
-    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other
+    /* Responsive layout - makes the two columns stack
+    on top of each other instead of next to each other
     @media screen and (max-width: 1200px) {
         .column-4.mobile-100,
         .column-6.mobile-100,

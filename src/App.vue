@@ -1,3 +1,4 @@
+<!-- eslint-disable linebreak-style -->
 <script setup lang="ts">
 import {ref} from 'vue';
 import {useRouter} from 'vue-router';
@@ -7,17 +8,7 @@ const drawer = ref(false);
 const router = useRouter();
 
 </script>
-+
-<style>
-  @font-face {
-    font-family: "Manrope";
-    src: local("Manrope"), url(fonts/Manrope-VariableFont_wght.ttf) format("truetype");
-  }
-  body, select, button{
-    font-family: "Manrope";
-    letter-spacing:0.5px;
-  }
-</style>
+
 
 <template>
   <v-app>
@@ -50,3 +41,14 @@ const router = useRouter();
   </v-app>
 </template>
 
+<style>
+  @font-face {
+    font-family: "Manrope";
+    src: local("Manrope"),
+         url(fonts/Manrope-VariableFont_wght.ttf) format("truetype");
+  }
+  body, select, button{
+    font-family: "Manrope";
+    letter-spacing:0.5px;
+  }
+  </style>

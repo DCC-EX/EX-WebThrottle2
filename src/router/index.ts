@@ -2,6 +2,11 @@ import * as VueRouter from 'vue-router';
 const routes = [
   {path: '/', redirect: '/throttle'},
   {
+    path: '/layout',
+    name: 'layout',
+    component: () => import('../views/Layout.vue'),
+  },
+  {
     path: '/throttle',
     name: 'throttle',
     component: () => import('../views/Throttle.vue'),

@@ -29,8 +29,12 @@ import {
   DirectionalLight,
   PlaneGeometry,
   TextureLoader,
+  TOUCH,
+  PCFSoftShadowMap,
+  CameraHelper,
 } from 'three';
-import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
+
+import {MapControls} from 'three/examples/jsm/controls/OrbitControls';
 import {ref, onMounted, watch, computed} from 'vue';
 
 const layoutDisplay = ref<HTMLCanvasElement | null>(null);
@@ -45,7 +49,7 @@ watch(aspectRatio, updateCamera);
 const scene = new Scene();
 scene.background = new Color( 0xb0b0f0 );
 
-let controls: OrbitControls;
+let controls: MapControls;
 
 let renderer: WebGLRenderer;
 let camera: PerspectiveCamera;
@@ -54,21 +58,22 @@ camera = new PerspectiveCamera(
   60,
   aspectRatio.value,
   0.1,
-  2000,
+  10000,
 );
 
 camera.position.set(0, 350, 350);
 
 // trees
 
-const geometry = new CylinderGeometry( 0, 10, 30, 4, 1 );
-const material = new MeshPhongMaterial( { color: 0x00ff00, flatShading: true } );
-
 for ( let i = 0; i < 1000; i ++ ) {
+  const ts = 20+30*Math.random();
+  const geometry = new CylinderGeometry( 0, ts/3, ts, 3, 1 );
+  const material = new MeshPhongMaterial( {color: new Color(0,0.25+Math.random()/2,0), flatShading: true} );
   const mesh = new Mesh( geometry, material );
   mesh.position.x = Math.random() * 1600 - 800;
   mesh.position.y = 0;
   mesh.position.z = Math.random() * 1200 - 600;
+  mesh.rotation.y = Math.random();
   mesh.updateMatrix();
   mesh.matrixAutoUpdate = false;
   mesh.castShadow = true;
@@ -89,18 +94,27 @@ scene.add(surface);
 
 // lights
 
-scene.add( new AmbientLight( 0xf0f0f0, 0.6) );
-const light = new SpotLight( 0xffffff, 0.4 );
-light.position.set( 2000, 1000, 500 );
-light.angle = Math.PI * 0.2;
+scene.add( new AmbientLight( 0xf0f0f0, 0.5) );
+const light = new DirectionalLight( 0xffffff, 0.8 );
+light.position.set( 3, 2, 1 );
 light.castShadow = true;
-light.shadow.camera.near = 0.5;
-light.shadow.camera.far = 5000;
-//light.shadow.bias = - 0.000222;
-light.shadow.bias = +0.00005;
-light.shadow.mapSize.width = 2048;
-light.shadow.mapSize.height = 2048;
+const dd = 1000;
+light.shadow.camera.near = -dd;
+light.shadow.camera.far = dd;
+const ds = 1000;
+light.shadow.camera.left = -ds;
+light.shadow.camera.right = ds;
+light.shadow.camera.top = ds;
+light.shadow.camera.bottom = -ds;
+// light.shadow.bias = - 0.000222;
+// light.shadow.bias = +0.00005;
+const ss = 512;
+light.shadow.mapSize.width = ss;
+light.shadow.mapSize.height = ss;
 scene.add( light );
+
+// const helper = new CameraHelper( light.shadow.camera );
+// scene.add( helper );
 
 onMounted(() => {
   renderer = new WebGLRenderer({
@@ -108,11 +122,11 @@ onMounted(() => {
     antialias: true,
   });
   renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = PCFSoftShadowMap;
 
-  controls = new OrbitControls(camera,renderer.domElement);
+  controls = new MapControls(camera, renderer.domElement);
   controls.enableDamping = true;
-  controls.dampingFactor = 0.1;
-  controls.screenSpacePanning = false;
+  controls.dampingFactor = 0.07;
   controls.maxPolarAngle = Math.PI / 2;
   
   updateRenderer();

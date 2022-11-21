@@ -18,6 +18,7 @@ export const useGlobalStore = defineStore('global', {
       title: 'WebThrottle-EX',
       showNavBar: false,
       NavLinks: [
+        {icon: 'mdi:mountain', to: 'layout', title: 'Layout View'},
         {icon: 'mdi:remote', to: 'throttle', title: 'Throttles'},
         {icon: 'mdi:train', to: 'locos', title: 'Saved Locomotives'},
         {icon: 'mdi:function', to: 'functions', title: 'Mapped Functions'},

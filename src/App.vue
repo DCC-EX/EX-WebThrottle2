@@ -8,7 +8,7 @@
         />
       </template>
 
-      <v-app-bar-title id="title">
+      <v-app-bar-title id="currentPageTitle">
         {{ getTitle }}
       </v-app-bar-title>
 
@@ -38,17 +38,17 @@
           :to="item.to"
         >
           <template #prepend>
-            <v-icon :icon="item.icon"/>
+            <v-icon :icon="item.icon" />
           </template>
-          <v-list-item-title v-text="item.title"/>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-main>
-      <router-view/>
+      <router-view />
     </v-main>
     <v-footer height="25">
-      <v-row no-gutters>
+      <!-- <v-row no-gutters>
         <v-col cols="2">
           <v-switch
             id="themeSwitch"
@@ -60,79 +60,28 @@
             false-value="dccExDark"
           />
         </v-col>
-        <v-col>
-          {{ new Date().getFullYear() }} — <strong>DCC EX Team</strong>
-        </v-col>
-      </v-row>
+        <v-col> -->
+      {{ new Date().getFullYear() }} — <strong>DCC EX Team</strong>
+      <!-- </v-col>
+      </v-row> -->
     </v-footer>
   </v-app>
-  <!-- <div>
-        <nav class="menu" id="side-menu" tabindex="0">
-            <header class="avatar">
-                <button class="nav-btn in" id="nav-close">&times;</button>
-                <img src="./assets/cover.jpg" />
-            </header>
-            <ul>
-                <li tabindex="0" class="throttle" id="throttle-nav"><span>Throttle</span></li>
-                <li tabindex="0" class="locomotives" id="loco-nav"><span>Locomotives</span></li>
-                <li tabindex="0" class="function-maps" id="fn-map-nav">
-                    <span>Function Maps</span>
-                </li>
-                <li tabindex="0" class="settings" id="settings-nav"><span>Settings</span></li>
-            </ul>
-        </nav>
-        <div class="topnav">
-            <div class="row">
-                <div class="column-2">
-                    <button class="nav-btn" id="nav-open">☰</button>
-                </div>
-                <div class="column-6 align-center">
-                    <div class="throttle-heading">
-                        <a href="http://www.dcc-ex.com" target="_blank" rel="noopener noreferrer"
-                            ><div class="wt-logo"></div
-                        ></a>
-                        img src="images/WebThrottle.png" /> -->
-  <!-- <p>Version 1.2.0</p> -->
-  <!-- </div>
-                </div>
-                <div class="column-2">
-                    <button class="btn-expand" id="fs-toggle" state="ws" title="Fullscreen">
-                        &#10530;
-                    </button>
-                    <button class="btn-info" id="info-tooltip" state="ws" title="Information">
-                        <span class="icon-info"></span>
-                    </button>
-                    <button
-                        class="btn-info"
-                        id="help-button"
-                        state="ws"
-                        title="Help"
-                        onclick=" window.open('https://dcc-ex.com/throttles/ex-webthrottle.html', '_blank')"
-                    >
-                        <span class="icon-question"></span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-    </div> -->
 </template>
 <script lang="ts" setup>
 import {useTheme} from 'vuetify';
-import {computed, ref, watch} from 'vue';
+import {computed, ref} from 'vue';
 import {useGlobalStore} from './store/global';
+import {useSettingsStore} from './store/settings';
 import {storeToRefs} from 'pinia';
 
 const theme = useTheme();
 const globalStore = useGlobalStore();
+const settingsStore = useSettingsStore();
 const {getTitle, showNavBar, getNavList} = storeToRefs(globalStore);
+const {getTheme} = storeToRefs(settingsStore);
 const toggleNav = computed(() => globalStore.toggleNavBar);
-const themeModel = ref('dccExDark');
 const powerModel = ref('off');
-
-watch(themeModel, (newmodel, oldold) => {
-  theme.global.name.value = newmodel;
-});
+theme.global.name.value = getTheme.value;
 </script>
 
 <style></style>

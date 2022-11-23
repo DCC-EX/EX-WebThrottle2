@@ -21,6 +21,11 @@ const routes = [
     name: 'settings',
     component: () => import('../views/Settings.vue'),
   },
+  {
+    path: '/layout',
+    name: 'layout',
+    component: () => import('../views/Layout.vue'),
+  },
 ];
 
 // 3. Create the router instance and pass the `routes` option

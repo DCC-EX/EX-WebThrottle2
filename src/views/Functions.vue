@@ -17,7 +17,7 @@
               id="add-map"
               class="add-loco-btn btn"
             >
-              <span class="icon-plus"/> New Map
+              <span class="icon-plus" /> New Map
             </button>
           </div>
           <div class="column-2">
@@ -26,7 +26,7 @@
               class="add-loco-btn btn"
               title="Export Map"
             >
-              <span class="icon-upload3"/>
+              <span class="icon-upload3" />
             </button>
           </div>
           <div class="column-2">
@@ -35,7 +35,7 @@
               class="add-loco-btn btn"
               title="Import Map"
             >
-              <span class="icon-download3"/>
+              <span class="icon-download3" />
             </button>
           </div>
         </div>
@@ -43,7 +43,7 @@
     </div>
     <div class="row settings-content">
       <div class="side-panel">
-        <ul id="function-mappings"/>
+        <ul id="function-mappings" />
       </div>
       <div
         id="mapping-panel"
@@ -58,7 +58,7 @@
 </template>
 <script lang="ts">
 export default {
-  name: 'Functions',
+  name: 'FunctionsPage',
 };
 </script>
 <script setup lang="ts"></script>

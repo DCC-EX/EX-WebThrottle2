@@ -1,21 +1,22 @@
 import {describe, test, expect} from 'vitest';
 
 import {mount} from '@vue/test-utils';
-import Throttle from '../Throttle.vue';
+import App from '../App.vue';
 
-import {createVuetify} from 'vuetify';
-import * as components from 'vuetify/components';
-import * as directives from 'vuetify/directives';
+import {createPinia} from 'pinia';
+import router from '../router';
+import vuetify from '../plugins/vuetify';
 
-describe('HelloWorld', () => {
-  const vuetify = createVuetify({components, directives});
+describe('App Tests', () => {
+  const pinia = createPinia();
+
   test('renders properly', () => {
-    const wrapper = mount(Throttle, {
+    const wrapper = mount(App, {
       global: {
-        plugins: [vuetify],
+        plugins: [vuetify, pinia, router],
       },
     });
-    expect(wrapper.text()).toContain('WebThrottle');
+    expect(wrapper.text()).toContain('ExWebThrottle');
   });
 
   // test("logic works", async () => {

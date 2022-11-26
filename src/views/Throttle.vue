@@ -30,10 +30,10 @@
                 class="acq-loco-btn btn"
                 data-acquired="false"
               >
-                <span class="icon-circle-right"/>
+                <span class="icon-circle-right" />
               </button>
             </div>
-            <div class="column-2 formbuilder-button acquire-wrap"/>
+            <div class="column-2 formbuilder-button acquire-wrap" />
           </div>
         </div>
         <div class="server-button column-5">
@@ -59,10 +59,10 @@
             name="button-connect"
             access="false"
           >
-            <span class="con-ind"/>Connect DCC++ EX
+            <span class="con-ind" />Connect DCC++ EX
           </button>
           <!-- <button class="btn-grey" id="fs-toggle"
-          state="ws" title="Fullscreen"> &#10530;</button> -->
+            state="ws" title="Fullscreen">&#10530;</button> -->
         </div>
       </div>
       <hr >
@@ -76,7 +76,7 @@
         name="button-hide"
         access="false"
       >
-        <span class="icon-circle-up"/>
+        <span class="icon-circle-up" />
       </button>
     </div>
 
@@ -104,7 +104,7 @@
                 id="vertical-throttle"
                 class="vertical-throttle speedController"
               >
-                <div id="v-throttle"/>
+                <div id="v-throttle" />
                 <div
                   id="speed-indicator"
                   class="progress-numb"
@@ -154,7 +154,7 @@
                 class="em-stop"
                 title="Emergency Stop"
               >
-                <span class="icon-stop"/>
+                <span class="icon-stop" />
               </button>
             </div>
             <div class="dir-toggle">
@@ -163,21 +163,21 @@
                 class="dir-btn forward selected"
                 aria-label="forward"
               >
-                <span class="arrow-up icon-up"/>
+                <span class="arrow-up icon-up" />
               </button>
               <button
                 id="dir-S"
                 class="dir-btn stop"
                 aria-label="stop"
               >
-                <span class="stop"/>
+                <span class="stop" />
               </button>
               <button
                 id="dir-b"
                 class="dir-btn backward"
                 aria-label="backward"
               >
-                <span class="arrow-down icon-down"/>
+                <span class="arrow-down icon-down" />
               </button>
             </div>
           </div>
@@ -195,7 +195,7 @@
                 id="power-switch"
                 type="checkbox"
               >
-              <span class="slider round"/>
+              <span class="slider round" />
             </label>
             <span class="pow-status">
               Power <span id="power-status">Off</span>
@@ -227,7 +227,7 @@
             id="console-toggle"
             type="checkbox"
           >
-          <span class="slider round debug-slider"/>
+          <span class="slider round debug-slider" />
         </label>
         <span class="debug-status"> Debug Console </span>
       </div>
@@ -282,13 +282,12 @@
 </template>
 <script lang="ts">
 export default {
-  name: 'ExThrottle',
+  name: 'ThrottlePage',
 };
 </script>
 <script setup lang="ts"></script>
 <style scoped>
-/*
-#throttle-window {
+/* #throttle-window {
         box-shadow: 0 0 5px 0px #777777;
         overflow: auto;
         /* height: auto;
@@ -1328,8 +1327,7 @@ export default {
         justify-content: center;
         align-items: center;
     }
-    /* Responsive layout - makes the two columns stack
-    on top of each other instead of next to each other
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other
     @media screen and (max-width: 1200px) {
         .column-4.mobile-100,
         .column-6.mobile-100,

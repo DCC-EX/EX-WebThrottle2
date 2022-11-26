@@ -17,7 +17,7 @@
               id="add-loco"
               class="add-loco-btn btn"
             >
-              <span class="icon-plus"/> Add New
+              <span class="icon-plus" /> Add New
             </button>
             <div
               id="loco-form-content"
@@ -134,9 +134,9 @@
                     required
                   >
                 </div>
-                <div class="spacer"/>
+                <div class="spacer" />
                 <div class="row">
-                  <div class="column-2"/>
+                  <div class="column-2" />
                   <button
                     id="loco-submit"
                     loco-mode="add"
@@ -145,7 +145,7 @@
                   >
                     Submit
                   </button>
-                  <div class="column-2"/>
+                  <div class="column-2" />
                 </div>
               </form>
             </div>
@@ -156,7 +156,7 @@
               class="add-loco-btn btn"
               title="Export Locomotives"
             >
-              <span class="icon-upload3"/>
+              <span class="icon-upload3" />
             </button>
           </div>
           <div class="column-2">
@@ -165,7 +165,7 @@
               class="add-loco-btn btn"
               title="Import Locomotives"
             >
-              <span class="icon-download3"/>
+              <span class="icon-download3" />
             </button>
           </div>
         </div>
@@ -185,7 +185,7 @@
 </template>
 <script lang="ts">
 export default {
-  name: 'Locos',
+  name: 'LocosPage',
 };
 </script>
 <script setup lang="ts"></script>

@@ -16,24 +16,27 @@ export interface Connection {
 
 interface State {
   connections: Connection[];
+  theme: string;
+  controller: string;
 }
 
-export const settingsStore = defineStore('settings', {
+export const useSettingsStore = defineStore('settings', {
   state: (): State => {
     const savedConnections = localStorage.getItem(
       STORAGE_KEYS.SAVED_CONNECTIONS,
     );
-    if (savedConnections) {
-      return {
-        connections: JSON.parse(savedConnections),
-      };
-    }
+    const savedTheme = localStorage.getItem(STORAGE_KEYS.THEME);
+
     return {
-      connections: [],
+      connections: savedConnections ? JSON.parse(savedConnections) : [],
+      theme: savedTheme ? savedTheme : 'dark',
+      controller: 'knob',
     };
   },
   getters: {
     getConnections: (state) => state.connections,
+    getTheme: (state) => state.theme,
+    getController: (state) => state.controller,
   },
   actions: {
     addConnection(conn: Connection) {
@@ -42,6 +45,14 @@ export const settingsStore = defineStore('settings', {
         STORAGE_KEYS.SAVED_CONNECTIONS,
         JSON.stringify(this.connections),
       );
+    },
+    setTheme(theme: string) {
+      this.theme = theme;
+      localStorage.setItem(STORAGE_KEYS.THEME, theme);
+    },
+    setController(cont: string) {
+      this.controller = cont;
+      localStorage.setItem(STORAGE_KEYS.CONTROLLER, cont);
     },
   },
 });

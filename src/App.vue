@@ -84,4 +84,17 @@ const powerModel = ref('off');
 theme.global.name.value = getTheme.value;
 </script>
 
-<style></style>
+<style>
+@font-face {
+  font-family: "Manrope";
+  src: url("Manrope-VariableFont_wght.ttf") format("ttf supports variations");
+  font-weight: 100 1000;
+}
+:root {
+  --font-fallback: "Roboto", "Arial", "Helvetica Neue", "sans-serif";
+}
+
+body, main{
+  font-family: "Manrope", var(--font-fallback);
+}
+</style>

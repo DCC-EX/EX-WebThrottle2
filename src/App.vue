@@ -18,13 +18,14 @@
           inset
           true-value="on"
           false-value="off"
-          true-icon="mdi:power-on"
-          false-icon="mdi:power-off"
+          class="p-switch"
         >
           <template #label>
+            <label>Power {{powerModel}}</label>
             <v-icon
               icon="mdi:power"
-              :style="powerModel == `on` ? 'color: green;' : 'color: red;'"
+              :class="powerModel == 'on' ? 'p-on':'p-off'"
+              label="'Power'"
             />
           </template>
         </v-switch>
@@ -87,7 +88,7 @@ theme.global.name.value = getTheme.value;
 <style>
 @font-face {
   font-family: "Manrope";
-  src: url("Manrope-VariableFont_wght.ttf") format("ttf supports variations");
+  src: url("fonts/Manrope-VariableFont_wght.ttf") format("truetype-variations");
   font-weight: 100 1000;
 }
 :root {
@@ -96,5 +97,41 @@ theme.global.name.value = getTheme.value;
 
 body, main{
   font-family: "Manrope", var(--font-fallback);
+  font-size: 16px;
 }
+.v-app-bar .v-toolbar__append{
+  height: 100%;
+  padding-top: 3px;
+  padding-right: 8px;
+}
+.p-switch .v-selection-control__wrapper{
+  display: none;
+}
+.p-switch .v-label{
+  opacity: 1;
+}
+.p-switch .v-label label{
+  font-size: 14px;
+  padding-right: 8px;
+  font-variation-settings: 'wght' 200;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.p-switch .p-on{
+  color: #ffffff;
+  background: green;
+  border-radius: 16px;
+  padding: 4px;
+  height: 32px;
+  width: 32px;
+}
+.p-switch .p-off{
+  color:#ffffff; 
+  background:red; 
+  border-radius:16px;
+  padding: 4px;
+  height: 32px;
+  width: 32px;
+}
+
 </style>

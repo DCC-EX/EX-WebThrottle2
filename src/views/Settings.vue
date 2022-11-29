@@ -99,4 +99,4 @@ const currentTheme = ref(getTheme);
 const currentController = ref(getController);
 
 </script>
-<style scoped></style>
+<style lang="scss" scoped></style>

@@ -1,7 +1,8 @@
-import {createVuetify} from 'vuetify';
-import * as compoenets from 'vuetify/components';
-import * as directives from 'vuetify/directives';
-import {iconify} from './iconify';
+import { createVuetify } from "vuetify";
+import * as compoenets from "vuetify/components";
+import * as directives from "vuetify/directives";
+import { iconify } from "./iconify";
+import "../assets/styles/main.scss";
 
 // <color name="primaryColor">#00a3b9</color>
 // <color name="primaryLightColor">#5bd5eb</color>
@@ -44,21 +45,21 @@ export default createVuetify({
   components: compoenets,
   directives,
   icons: {
-    defaultSet: 'mdi',
+    defaultSet: "mdi",
     sets: {
-      mdi: iconify('mdi'),
-      cib: iconify('cib'),
+      mdi: iconify("mdi"),
+      cib: iconify("cib"),
     },
   },
   theme: {
-    defaultTheme: 'dark',
+    defaultTheme: "dark",
     themes: {
       dark: {
         colors: {
-          'primary': '#00a3b9',
-          'primary-darken-1': '#007489',
-          'secondary': '#00353d',
-          'secondary-darken-1': '#001017',
+          primary: "#00a3b9",
+          "primary-darken-1": "#007489",
+          secondary: "#00353d",
+          "secondary-darken-1": "#001017",
         },
       },
     },

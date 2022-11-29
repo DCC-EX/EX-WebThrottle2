@@ -2,10 +2,7 @@
   <v-app>
     <v-app-bar>
       <template #prepend>
-        <v-app-bar-nav-icon
-          icon="mdi:menu"
-          @click.stop="toggleNav()"
-        />
+        <v-app-bar-nav-icon icon="mdi:menu" @click.stop="toggleNav()" />
       </template>
 
       <v-app-bar-title id="currentPageTitle">
@@ -18,13 +15,14 @@
           inset
           true-value="on"
           false-value="off"
-          true-icon="mdi:power-on"
-          false-icon="mdi:power-off"
+          class="p-switch"
         >
           <template #label>
+            <label>Power {{ powerModel }}</label>
             <v-icon
               icon="mdi:power"
-              :style="powerModel == `on` ? 'color: green;' : 'color: red;'"
+              :class="powerModel == 'on' ? 'p-on' : 'p-off'"
+              label="'Power'"
             />
           </template>
         </v-switch>
@@ -32,11 +30,7 @@
     </v-app-bar>
     <v-navigation-drawer v-model="showNavBar">
       <v-list nav>
-        <v-list-item
-          v-for="(item, i) in getNavList"
-          :key="i"
-          :to="item.to"
-        >
+        <v-list-item v-for="(item, i) in getNavList" :key="i" :to="item.to">
           <template #prepend>
             <v-icon :icon="item.icon" />
           </template>
@@ -68,20 +62,50 @@
   </v-app>
 </template>
 <script lang="ts" setup>
-import {useTheme} from 'vuetify';
-import {computed, ref} from 'vue';
-import {useGlobalStore} from './store/global';
-import {useSettingsStore} from './store/settings';
-import {storeToRefs} from 'pinia';
+import { useTheme } from "vuetify";
+import { computed, ref } from "vue";
+import { useGlobalStore } from "./store/global";
+import { useSettingsStore } from "./store/settings";
+import { storeToRefs } from "pinia";
 
 const theme = useTheme();
 const globalStore = useGlobalStore();
 const settingsStore = useSettingsStore();
-const {getTitle, showNavBar, getNavList} = storeToRefs(globalStore);
-const {getTheme} = storeToRefs(settingsStore);
+const { getTitle, showNavBar, getNavList } = storeToRefs(globalStore);
+const { getTheme } = storeToRefs(settingsStore);
 const toggleNav = computed(() => globalStore.toggleNavBar);
-const powerModel = ref('off');
+const powerModel = ref("off");
 theme.global.name.value = getTheme.value;
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.p-switch .v-selection-control__wrapper {
+  display: none;
+}
+.p-switch .v-label {
+  opacity: 1;
+}
+.p-switch .v-label label {
+  font-size: 14px;
+  padding-right: 8px;
+  font-variation-settings: "wght" 200;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.p-switch .p-on {
+  color: #ffffff;
+  background: green;
+  border-radius: 16px;
+  padding: 4px;
+  height: 32px;
+  width: 32px;
+}
+.p-switch .p-off {
+  color: #ffffff;
+  background: red;
+  border-radius: 16px;
+  padding: 4px;
+  height: 32px;
+  width: 32px;
+}
+</style>

@@ -1,5 +1,5 @@
 import * as VueRouter from 'vue-router';
-import "../assets/styles/reset.css";
+import '../assets/styles/reset.css';
 const routes = [
   {path: '/', redirect: '/throttle'},
   {

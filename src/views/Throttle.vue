@@ -1,73 +1,94 @@
 <template>
-  <div
-    id="throttle-window"
-    class="section"
-  >
-    <div
-      id="details-panel"
-      Class="details-panel"
+  <v-container fluid>
+    <v-flex
+      id="throttle-window"
+      class="section d-flex flex-row"
     >
-      <div class="row">
-        <div class="column-5">
-          <div class="loco-list-container row">
-            <div class="column-5 loco-list-ctrl">
-              <label
-                for="ex-locoid"
-                class="formbuilder-text-label"
-              >
-                Locomotive ID <span class="formbuilder-required">*</span>
-              </label>
-              <input
-                id="ex-locoid"
-                type="text"
-                loco-cv="0"
-                name="Locomotives"
-              >
+      <v-col
+        cols="2"
+      >
+        <v-list>
+          <v-list-item
+            two-line
+            class="py-3"
+          >
+            <v-list-item-content>
+              <v-list-item-title>Locomotive 1</v-list-item-title>
+              <v-list-item-subtitle>CV text</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item
+            two-line
+            class="py-3"
+          >
+            <v-list-item-content>
+              <v-list-item-title>Locomotive 2</v-list-item-title>
+              <v-list-item-subtitle>CV text</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item
+            two-line
+            class="py-3"
+          >
+            <v-list-item-content>
+              <v-list-item-title>Locomotive 3</v-list-item-title>
+              <v-list-item-subtitle>CV text</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-col>
+      <v-col
+        cols="10"
+      >
+        <v-flex
+          class="d-flex flex-row"
+        >
+          <v-col cols="6">
+            Throttle knob
+          </v-col>
+          <v-col cols="6">
+            Function buttons
+          </v-col>
+        </v-flex>
+      </v-col>
+      <!--div
+        id="details-panel"
+        Class="details-panel"
+      >
+        <div class="row">
+          <div class="column-5">
+            <div class="loco-list-container row">
+              <div class="column-5 loco-list-ctrl">
+                <label
+                  for="ex-locoid"
+                  class="formbuilder-text-label"
+                >
+                  Locomotive ID <span class="formbuilder-required">*</span>
+                </label>
+                <input
+                  id="ex-locoid"
+                  type="text"
+                  loco-cv="0"
+                  name="Locomotives"
+                >
+              </div>
+              <div class="column-2 formbuilder-button acquire-wrap">
+                <button
+                  id="button-getloco"
+                  class="acq-loco-btn btn"
+                  data-acquired="false"
+                >
+                  <span class="icon-circle-right" />
+                </button>
+              </div>
+              <div class="column-2 formbuilder-button acquire-wrap" />
             </div>
-            <div class="column-2 formbuilder-button acquire-wrap">
-              <button
-                id="button-getloco"
-                class="acq-loco-btn btn"
-                data-acquired="false"
-              >
-                <span class="icon-circle-right" />
-              </button>
-            </div>
-            <div class="column-2 formbuilder-button acquire-wrap" />
           </div>
         </div>
-        <div class="server-button column-5">
-          <select
-            id="select-method"
-            class="select-control select-xl"
-            name="selectMethod"
-            title="Change the connection method"
-          >
-            <option value="serial">
-              Serial
-            </option>
-            <option value="emulator">
-              Emulator
-            </option>
-          </select>
-          <button
-            id="button-connect"
-            type="button"
-            class="btn-default btn"
-            title="Connect to the Command Station"
-            aria-state="connected"
-            name="button-connect"
-            access="false"
-          >
-            <span class="con-ind" />Connect DCC++ EX
-          </button>
-          <!-- <button class="btn-grey" id="fs-toggle"
-            state="ws" title="Fullscreen">&#10530;</button> -->
-        </div>
-      </div>
-      <hr >
-    </div>
-    <div class="row pos-rel">
+        <hr >
+      </div-->
+
+    <!--div class="row pos-rel">
       <button
         id="button-hide"
         type="button"
@@ -277,8 +298,9 @@
         id="log-box"
         class="log-msg"
       />
-    </div>
-  </div>
+    </div-->
+    </v-flex>
+  </v-container>
 </template>
 <script lang="ts">
 export default {

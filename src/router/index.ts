@@ -1,31 +1,31 @@
-import * as VueRouter from 'vue-router';
-import '../assets/styles/reset.css';
+import * as VueRouter from "vue-router";
+import "../assets/styles/reset.css";
 const routes = [
-  {path: '/', redirect: '/throttle'},
+  { path: "/", redirect: "/throttles" },
   {
-    path: '/throttle',
-    name: 'throttle',
-    component: () => import('../views/Throttle.vue'),
+    path: "/throttles",
+    name: "throttles",
+    component: () => import("../views/Throttles.vue"),
   },
   {
-    path: '/locos',
-    name: 'locos',
-    component: () => import('../views/Locos.vue'),
+    path: "/locos",
+    name: "locos",
+    component: () => import("../views/Locos.vue"),
   },
   {
-    path: '/functions',
-    name: 'functions',
-    component: () => import('../views/Functions.vue'),
+    path: "/functions",
+    name: "functions",
+    component: () => import("../views/Functions.vue"),
   },
   {
-    path: '/settings',
-    name: 'settings',
-    component: () => import('../views/Settings.vue'),
+    path: "/settings",
+    name: "settings",
+    component: () => import("../views/Settings.vue"),
   },
   {
-    path: '/layout',
-    name: 'layout',
-    component: () => import('../views/Layout.vue'),
+    path: "/layout",
+    name: "layout",
+    component: () => import("../views/Layout.vue"),
   },
 ];
 

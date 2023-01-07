@@ -1,4 +1,4 @@
-import {defineStore} from 'pinia';
+import { defineStore } from "pinia";
 
 interface NavLink {
   icon: string;
@@ -12,16 +12,16 @@ interface State {
   NavLinks: NavLink[];
 }
 
-export const useGlobalStore = defineStore('global', {
+export const useGlobalStore = defineStore("global", {
   state: (): State => {
     return {
-      title: 'ExWebThrottle',
+      title: "ExWebThrottle",
       showNavBar: false,
       NavLinks: [
-        {icon: 'mdi:remote', to: 'throttle', title: 'Throttles'},
-        {icon: 'mdi:train', to: 'locos', title: 'Saved Locomotives'},
-        {icon: 'mdi:function', to: 'functions', title: 'Mapped Functions'},
-        {icon: 'mdi:cog', to: 'settings', title: 'Settings'},
+        { icon: "mdi:remote", to: "throttles", title: "Throttles" },
+        { icon: "mdi:train", to: "locos", title: "Saved Locomotives" },
+        { icon: "mdi:function", to: "functions", title: "Mapped Functions" },
+        { icon: "mdi:cog", to: "settings", title: "Settings" },
       ],
     };
   },

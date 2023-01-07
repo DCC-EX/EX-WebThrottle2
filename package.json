@@ -16,6 +16,7 @@
         "roboto-fontface": "*",
         "three": "^0.146.0",
         "vue": "^3.2.38",
+        "vue-round-slider": "dexslab/vue-round-slider",
         "vue-router": "^4.1.6",
         "vuetify": "^3.0.0",
         "webfontloader": "^1.0.0"

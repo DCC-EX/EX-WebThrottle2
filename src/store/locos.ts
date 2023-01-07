@@ -1,4 +1,4 @@
-import {defineStore} from 'pinia';
+import { defineStore } from "pinia";
 
 export interface ByteCV {
   cvNumber: number;
@@ -10,12 +10,18 @@ export interface BooleanCV {
   value: boolean;
 }
 
+export enum ThrottleType {
+  ROTARY = "Rotary Knob",
+  VERTICAL = "Vertical Slider",
+  CIRCULAR = "Circular Slider",
+}
+
 export interface Locomotive {
   displayName: string;
   roadNumber: string;
   dccAddress: number;
   currentSpeed: number;
-
+  throttleType: ThrottleType;
   savedCVState?: (ByteCV | BooleanCV)[];
 }
 
@@ -24,7 +30,7 @@ interface State {
   activeThrottles: Locomotive[];
 }
 
-export const savedLocosStore = defineStore('savedLocos', {
+export const savedLocosStore = defineStore("savedLocos", {
   state: (): State => {
     return {
       Locomotives: [],

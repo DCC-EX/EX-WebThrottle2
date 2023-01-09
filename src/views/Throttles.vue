@@ -2,23 +2,19 @@
   <v-container fluid>
     <v-row>
       <v-col cols="2">
-        <v-list>
-          <v-list-item two-line class="py-3">
-            <v-list-item-title>Locomotive 1</v-list-item-title>
-            <v-list-item-subtitle>CV text</v-list-item-subtitle>
-          </v-list-item>
-          <v-list-item two-line class="py-3">
-            <v-list-item-title>Locomotive 2</v-list-item-title>
-            <v-list-item-subtitle>CV text</v-list-item-subtitle>
-          </v-list-item>
-          <v-list-item two-line class="py-3">
-            <v-list-item-title>Locomotive 3</v-list-item-title>
-            <v-list-item-subtitle>CV text</v-list-item-subtitle>
-          </v-list-item>
-        </v-list>
+        <v-tabs v-model="activeThrottle" direction="vertical" color="primary">
+          <v-tab v-for="(l, k) in activeThrottles" :value="k">
+            <v-icon start> mdi:train-variant </v-icon>
+            {{ l.displayName }}
+          </v-tab>
+        </v-tabs>
       </v-col>
       <v-col>
-        <throttle></throttle>
+        <v-window v-model="activeThrottle">
+          <v-window-item v-for="(l, k) in activeThrottles" :value="k">
+            <throttle :loco="k"></throttle>
+          </v-window-item>
+        </v-window>
       </v-col>
     </v-row>
   </v-container>
@@ -30,5 +26,12 @@ export default {
 </script>
 <script setup lang="ts">
 import Throttle from "../components/throttle.vue";
+import { storeToRefs } from "pinia";
+import { ref, computed } from "vue";
+import { savedLocosStore } from "../store/locos";
+const locoStore = savedLocosStore();
+const { activeThrottles } = storeToRefs(locoStore);
+
+const activeThrottle = ref(-1);
 </script>
 <style lang="scss" scoped></style>

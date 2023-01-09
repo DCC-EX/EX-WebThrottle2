@@ -2,6 +2,7 @@ import {createVuetify} from 'vuetify';
 import * as compoenets from 'vuetify/components';
 import * as directives from 'vuetify/directives';
 import {iconify} from './iconify';
+import '../assets/styles/main.scss';
 
 // <color name="primaryColor">#00a3b9</color>
 // <color name="primaryLightColor">#5bd5eb</color>

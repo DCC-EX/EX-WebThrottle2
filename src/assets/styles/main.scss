@@ -1,0 +1,13 @@
+@use "vuetify" with (
+    $body-font-family: "Manrope"
+);
+
+@font-face {
+    font-family: "Manrope";
+    src: url("../fonts/Manrope-VariableFont_wght.ttf") format("truetype-variations");
+    font-weight: 100 1000;
+}
+
+:root {
+    --font-fallback: "Roboto", "Helvetica Neue", "Arial",  "sans-serif";
+}

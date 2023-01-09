@@ -15,16 +15,16 @@
       <template #append>
         <v-switch
           v-model="powerModel"
-          inset
+          hide-details
           true-value="on"
           false-value="off"
-          true-icon="mdi:power-on"
-          false-icon="mdi:power-off"
+          class="p-switch"
         >
           <template #label>
+            <label>Power {{ powerModel }}</label>
             <v-icon
               icon="mdi:power"
-              :style="powerModel == `on` ? 'color: green;' : 'color: red;'"
+              :class="powerModel == 'on' ? 'p-on' : 'p-off'"
             />
           </template>
         </v-switch>
@@ -84,4 +84,35 @@ const powerModel = ref('off');
 theme.global.name.value = getTheme.value;
 </script>
 
-<style></style>
+<style lang="scss">
+.p-switch.v-switch .v-selection-control__wrapper{
+  display: none !important;
+  width: 0;
+}
+.p-switch .v-label label {
+  font-size: 14px;
+  font-variation-settings: "wght" 200;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.p-switch .p-on {
+    color: #ffffff;
+    box-shadow: 0px 0px 6px 0px #71ff71;
+    background: #00e700;
+    border-radius: 16px;
+    padding: 4px;
+    height: 32px;
+    width: 32px;
+    margin: 8px;
+    border: 1px solid #71ff71;
+}
+.p-switch .p-off {
+  color: #ffffff;
+  background: red;
+  border-radius: 16px;
+  padding: 4px;
+  height: 32px;
+  width: 32px;
+  margin: 8px;
+}
+</style>

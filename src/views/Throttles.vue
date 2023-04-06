@@ -1,30 +1,22 @@
 <template>
-  <v-container fluid>
-    <v-row>
+  <v-container class="fill-height" fluid>
+    <v-row class="fill-height">
       <v-col cols="2">
-        <v-tabs
-          v-model="activeThrottle"
-          direction="vertical"
-          color="primary"
-        >
-          <v-tab
-            v-for="(l, k) in activeThrottles"
-            :value="k"
-          >
-            <v-icon start>
-              mdi:train-variant
-            </v-icon>
+        <v-tabs v-model="activeThrottle" direction="vertical" color="primary">
+          <v-tab v-for="(l, k) in activeThrottles" :value="k">
+            <v-icon start> mdi:train-variant </v-icon>
             {{ l.displayName }}
           </v-tab>
         </v-tabs>
       </v-col>
-      <v-col>
-        <v-window v-model="activeThrottle">
+      <v-col class="fill-height">
+        <v-window class="fill-height" v-model="activeThrottle">
           <v-window-item
+            class="fill-height"
             v-for="(l, k) in activeThrottles"
             :value="k"
           >
-            <throttle :loco="k"/>
+            <throttle class="fill-height" :loco="k" />
           </v-window-item>
         </v-window>
       </v-col>
@@ -33,16 +25,16 @@
 </template>
 <script lang="ts">
 export default {
-  name: 'ThrottlePage',
+  name: "ThrottlePage",
 };
 </script>
 <script setup lang="ts">
-import Throttle from '../components/throttle.vue';
-import {storeToRefs} from 'pinia';
-import {ref, computed} from 'vue';
-import {savedLocosStore} from '../store/locos';
+import Throttle from "../components/throttle.vue";
+import { storeToRefs } from "pinia";
+import { ref, computed } from "vue";
+import { savedLocosStore } from "../store/locos";
 const locoStore = savedLocosStore();
-const {activeThrottles} = storeToRefs(locoStore);
+const { activeThrottles } = storeToRefs(locoStore);
 
 const activeThrottle = ref(-1);
 </script>

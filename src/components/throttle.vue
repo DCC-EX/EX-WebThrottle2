@@ -1,36 +1,32 @@
 <template>
-  <v-container fluid>
-    <v-card>
-      <v-tabs
-        v-model="tab"
-        color="primary"
-      >
+  <v-container class="fill-height" fluid>
+    <v-card class="fill-height">
+      <v-tabs v-model="tab" color="primary">
         <v-tab value="throttle">
-          <v-icon start>
-            mdi:train-variant
-          </v-icon>
+          <v-icon start> mdi:train-variant </v-icon>
           Throttle
         </v-tab>
         <v-tab value="cv">
-          <v-icon start>
-            mdi:memory
-          </v-icon>
+          <v-icon start> mdi:memory </v-icon>
           CVs
         </v-tab>
         <v-tab value="settings">
-          <v-icon start>
-            mdi:cog-box
-          </v-icon>
+          <v-icon start> mdi:cog-box </v-icon>
           Settings
         </v-tab>
       </v-tabs>
-      <v-window v-model="tab">
-        <v-window-item value="throttle">
-          <v-row>
-            <v-col cols="10">
+      <v-window class="fill-height" v-model="tab">
+        <v-window-item class="fill-height" value="throttle">
+          <v-row no-gutters>
+            <v-col class="fill-height" cols="10">
               <v-row>
                 <v-col cols="3">
-                  <control-knob
+                  <round-slider
+                    v-model="locomotive.currentSpeed"
+                    start-angle="315"
+                    end-angle="+270"
+                    line-cap="round"
+                    radius="120"
                     v-if="locomotive.throttleType == ThrottleType.ROTARY"
                   />
                   <v-slider
@@ -41,16 +37,14 @@
                     v-if="locomotive.throttleType == ThrottleType.HORIZONTAL"
                   />
                 </v-col>
-                <v-col cols="6">
-                  Function buttons
-                </v-col>
+                <v-col cols="6"> Function buttons </v-col>
               </v-row>
             </v-col>
           </v-row>
         </v-window-item>
 
-        <v-window-item value="cv"/>
-        <v-window-item value="settings">
+        <v-window-item class="fill-height" value="cv" />
+        <v-window-item class="fill-height" value="settings">
           <v-combobox
             v-model="locomotive.throttleType"
             label="speedController"
@@ -65,7 +59,7 @@
 </template>
 <script lang="ts">
 export default {
-  name: 'Throttle',
+  name: "Throttle",
 };
 </script>
 <script setup lang="ts">
@@ -82,6 +76,6 @@ const updateActiveThrottle = (loco: number | undefined, locomotive: LocomotiveDa
     locoStore.updateActiveThrottle(loco, locomotive);
 }
 const locomotive = activeThrottles.value[props.loco ? props.loco : 0];
-const tab = ref('throttle');
+const tab = ref("throttle");
 </script>
 <style lang="scss" scoped></style>

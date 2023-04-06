@@ -1,11 +1,8 @@
 <template>
-  <v-app>
+  <v-app class="fill-height">
     <v-app-bar>
       <template #prepend>
-        <v-app-bar-nav-icon
-          icon="mdi:menu"
-          @click.stop="toggleNav()"
-        />
+        <v-app-bar-nav-icon icon="mdi:menu" @click.stop="toggleNav()" />
       </template>
 
       <v-app-bar-title id="currentPageTitle">
@@ -32,11 +29,7 @@
     </v-app-bar>
     <v-navigation-drawer v-model="showNavBar">
       <v-list nav>
-        <v-list-item
-          v-for="(item, i) in getNavList"
-          :key="i"
-          :to="item.to"
-        >
+        <v-list-item v-for="(item, i) in getNavList" :key="i" :to="item.to">
           <template #prepend>
             <v-icon :icon="item.icon" />
           </template>
@@ -44,7 +37,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-main>
+    <v-main class="main">
       <router-view />
     </v-main>
     <v-footer height="25">
@@ -68,24 +61,27 @@
   </v-app>
 </template>
 <script lang="ts" setup>
-import {useTheme} from 'vuetify';
-import {computed, ref} from 'vue';
-import {useGlobalStore} from './store/global';
-import {useSettingsStore} from './store/settings';
-import {storeToRefs} from 'pinia';
+import { useTheme } from "vuetify";
+import { computed, ref } from "vue";
+import { useGlobalStore } from "./store/global";
+import { useSettingsStore } from "./store/settings";
+import { storeToRefs } from "pinia";
 
 const theme = useTheme();
 const globalStore = useGlobalStore();
 const settingsStore = useSettingsStore();
-const {getTitle, showNavBar, getNavList} = storeToRefs(globalStore);
-const {getTheme} = storeToRefs(settingsStore);
+const { getTitle, showNavBar, getNavList } = storeToRefs(globalStore);
+const { getTheme } = storeToRefs(settingsStore);
 const toggleNav = computed(() => globalStore.toggleNavBar);
-const powerModel = ref('off');
+const powerModel = ref("off");
 theme.global.name.value = getTheme.value;
 </script>
 
 <style lang="scss">
-.p-switch.v-switch .v-selection-control__wrapper{
+.main {
+  height: 95%;
+}
+.p-switch.v-switch .v-selection-control__wrapper {
   display: none !important;
   width: 0;
 }
@@ -96,15 +92,15 @@ theme.global.name.value = getTheme.value;
   text-transform: capitalize;
 }
 .p-switch .p-on {
-    color: #ffffff;
-    box-shadow: 0px 0px 6px 0px #71ff71;
-    background: #00e700;
-    border-radius: 16px;
-    padding: 4px;
-    height: 32px;
-    width: 32px;
-    margin: 8px;
-    border: 1px solid #71ff71;
+  color: #ffffff;
+  box-shadow: 0px 0px 6px 0px #71ff71;
+  background: #00e700;
+  border-radius: 16px;
+  padding: 4px;
+  height: 32px;
+  width: 32px;
+  margin: 8px;
+  border: 1px solid #71ff71;
 }
 .p-switch .p-off {
   color: #ffffff;

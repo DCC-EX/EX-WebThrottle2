@@ -71,13 +71,16 @@ export default {
 <script setup lang="ts">
 import ControlKnob from '@slipmatio/control-knob';
 import {storeToRefs} from 'pinia';
-import {ref, computed, defineProps} from 'vue';
-import {ThrottleType, savedLocosStore} from '../store/locos';
+import {ref, defineProps} from 'vue';
+import {LocomotiveData, ThrottleType, savedLocosStore} from '../store/locos';
 
 const locoStore = savedLocosStore();
-const props = defineProps({loco: Number});
+const props = defineProps({loco: {type: Number, default: 0}});
 const {activeThrottles} = storeToRefs(locoStore);
-const updateActiveThrottle = computed(() => locoStore.updateActiveThrottle);
+const updateActiveThrottle = (loco: number | undefined, locomotive: LocomotiveData) => {
+  if (loco)
+    locoStore.updateActiveThrottle(loco, locomotive);
+}
 const locomotive = activeThrottles.value[props.loco ? props.loco : 0];
 const tab = ref('throttle');
 </script>

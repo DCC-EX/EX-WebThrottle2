@@ -52,7 +52,10 @@ function animate() {
 }
 
 onMounted(() => {
-  renderer.domElement = layoutDisplay;
+  if (layoutDisplay.value) {
+    renderer.domElement = layoutDisplay.value;
+  }
+
   animate();
 });
 </script>

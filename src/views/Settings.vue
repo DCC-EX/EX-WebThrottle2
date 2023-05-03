@@ -84,13 +84,11 @@ export default {
 </script>
 <script setup lang="ts">
 import {storeToRefs} from 'pinia';
-import {ref, computed} from 'vue';
+import {ref} from 'vue';
 import {useSettingsStore} from '../store/settings';
 const settingsStore = useSettingsStore();
-const {getTheme, getController} = storeToRefs(settingsStore);
-const setTheme = computed(settingsStore.setTheme);
+const {getTheme} = storeToRefs(settingsStore);
 const tab = ref('general');
 const currentTheme = ref(getTheme);
-const currentController = ref(getController);
 </script>
 <style lang="scss" scoped></style>

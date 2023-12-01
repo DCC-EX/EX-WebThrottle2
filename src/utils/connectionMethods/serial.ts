@@ -1,15 +1,23 @@
-import type {ConnectionHandler} from '../interfaces';
+import type { ConnectionHandler } from "../interfaces";
+import { SerialPort } from "serialport";
 
 /**
  * Serial connection handler
  */
 export class Serial implements ConnectionHandler {
+  public connection: SerialPort;
+
   /**
-   * Set the speed of a loco
-   * @param {number} address The address of the loco
-   * @param {number} speed The speed to set it to
+   *
+   * @param port Serial port to be used for communication
+   * @param baud (Optional) Communication baud rate which to communicate with the port
    */
-  setSpeed(address: number, speed: number): void {
-    console.log(`Set speed of ${address} to ${speed}`);
+  constructor(port: string, baud: number = 115200) {
+    this.connection = new SerialPort({
+      path: port,
+      baudRate: baud,
+    });
   }
+
+  sendData(data: any): void {}
 }

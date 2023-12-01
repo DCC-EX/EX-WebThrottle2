@@ -1,3 +1,6 @@
+import { SerialPort } from "serialport";
+
 export interface ConnectionHandler {
-    setSpeed(address: number, speed: number): void;
+  sendData(data: any): void;
+  connection: WebSocket | SerialPort
 }

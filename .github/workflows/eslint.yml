@@ -34,10 +34,10 @@ jobs:
               with:
                   node-version: "18.x"
             - uses: pnpm/action-setup@v2
-                name: Install pnpm
-                  with:
-                    version: 8
-                    run_install: false
+              name: Install pnpm
+              with:
+                  version: 8
+                  run_install: false
             - name: Install ESLint
               run: pnpm install
                   pnpm install @microsoft/eslint-formatter-sarif@2.1.7

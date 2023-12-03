@@ -22,7 +22,7 @@ jobs:
                   version: 8
                   run_install: false
             - name: Install dependencies
-              run: pnpm ci
+              run: pnpm install
             - name: Run Tests
               run: pnpm run test:unit
             - name: "Report Coverage"

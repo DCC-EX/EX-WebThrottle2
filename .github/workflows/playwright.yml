@@ -24,7 +24,7 @@ jobs:
                   run_install: false
 
             - name: Install dependencies
-              run: pnpm ci
+              run: pnpm install
             - name: Install Playwright Browsers
               run: npx playwright install --with-deps
             - name: Build Vue

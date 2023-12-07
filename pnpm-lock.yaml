@@ -8,9 +8,6 @@ dependencies:
   '@mdi/font':
     specifier: ^7.3.67
     version: 7.3.67
-  '@slipmatio/control-knob':
-    specifier: ^0.1.0
-    version: 0.1.0
   pinia:
     specifier: ^2.1.7
     version: 2.1.7(typescript@5.2.2)(vue@3.3.8)
@@ -771,10 +768,6 @@ packages:
       debug: 4.3.4
     transitivePeerDependencies:
       - supports-color
-    dev: false
-
-  /@slipmatio/control-knob@0.1.0:
-    resolution: {integrity: sha512-mIBBLHrlwV6Lbeezy7I5wlxbf7FEG6pRTjf1aD0DBhpjakGOtWAHMVQJ9z0OWd+t/S40hzWE13Yiy8DmGNc3WA==}
     dev: false
 
   /@tootallnate/once@2.0.0:

@@ -21,6 +21,7 @@ export const useGlobalStore = defineStore("global", {
         { icon: "mdi:remote", to: "throttles", title: "Throttles" },
         { icon: "mdi:train", to: "locos", title: "Saved Locomotives" },
         { icon: "mdi:function", to: "functions", title: "Mapped Functions" },
+        { icon: "mdi:envelope", to: "communications", title: "Communications" },
         { icon: "mdi:cog", to: "settings", title: "Settings" },
       ],
     };

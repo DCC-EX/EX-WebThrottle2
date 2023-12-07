@@ -1,31 +1,36 @@
-import * as VueRouter from "vue-router";
-import "../assets/styles/reset.css";
+import * as VueRouter from 'vue-router';
+import '../assets/styles/reset.css';
 const routes = [
-  { path: "/", redirect: "/throttles" },
+  {path: '/', redirect: '/throttles'},
   {
-    path: "/throttles",
-    name: "throttles",
-    component: () => import("../views/Throttles.vue"),
+    path: '/throttles',
+    name: 'throttles',
+    component: () => import('../views/Throttles.vue'),
   },
   {
-    path: "/locos",
-    name: "locos",
-    component: () => import("../views/Locos.vue"),
+    path: '/locos',
+    name: 'locos',
+    component: () => import('../views/Locos.vue'),
   },
   {
-    path: "/functions",
-    name: "functions",
-    component: () => import("../views/Functions.vue"),
+    path: '/functions',
+    name: 'functions',
+    component: () => import('../views/Functions.vue'),
   },
   {
-    path: "/settings",
-    name: "settings",
-    component: () => import("../views/Settings.vue"),
+    path: '/communications',
+    name: 'communications',
+    component: () => import('../views/Communications.vue'),
   },
   {
-    path: "/layout",
-    name: "layout",
-    component: () => import("../views/Layout.vue"),
+    path: '/settings',
+    name: 'settings',
+    component: () => import('../views/Settings.vue'),
+  },
+  {
+    path: '/layout',
+    name: 'layout',
+    component: () => import('../views/Layout.vue'),
   },
 ];
 

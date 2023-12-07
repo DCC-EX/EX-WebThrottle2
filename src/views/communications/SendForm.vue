@@ -5,7 +5,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import {useCommunicationsStore} from '@/store/communications';
+import {useCommunicationsStore} from '../../store/communications';
 import {ref} from 'vue';
 
 const communicationsStore = useCommunicationsStore();

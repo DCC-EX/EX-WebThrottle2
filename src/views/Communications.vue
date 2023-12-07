@@ -6,9 +6,9 @@ export default {
 
 <script setup lang="ts">
 import {ref} from 'vue';
-import CommunicationsLogs from '@/views/communications/Logs.vue';
-import CommunicationsSendForm from '@/views/communications/SendForm.vue';
-import CommunicationsFakeReadForm from '@/views/communications/FakeReadForm.vue';
+import CommunicationsFakeReadForm from "@/views/communications/FakeReadForm.vue";
+import CommunicationsSendForm from "@/views/communications/SendForm.vue";
+import CommunicationsLogs from "@/views/communications/Logs.vue";
 
 const tab = ref('general');
 

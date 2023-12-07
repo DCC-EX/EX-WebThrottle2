@@ -5,7 +5,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import {useCommunicationsStore} from '@/store/communications';
+import {useCommunicationsStore} from '../../store/communications';
 import {storeToRefs} from 'pinia';
 import {computed, ComputedRef} from 'vue';
 

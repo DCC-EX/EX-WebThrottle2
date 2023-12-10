@@ -10,6 +10,7 @@
         "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
     },
     "dependencies": {
+        "@cloudthrottle/dcc-ex--commands": "^0.12.0",
         "@cloudthrottle/dcc-ex--serial-communicator": "^0.1.0",
         "@mdi/font": "^7.3.67",
         "pinia": "^2.1.7",

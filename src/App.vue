@@ -25,15 +25,16 @@
           <v-switch
             v-model="powerModel"
             hide-details
-            true-value="on"
-            false-value="off"
+            true-value="1"
+            false-value="0"
             class="p-switch"
           >
             <template #label>
-              <label>Power {{ powerModel }}</label>
+
+              <label>Power {{ powerModel.value == 1 ? 'On' : 'Off' }}</label>
               <v-icon
                 icon="mdi:power"
-                :class="powerModel == 'on' ? 'p-on' : 'p-off'"
+                :class="powerModel.value == 1 ? 'p-on' : 'p-off'"
               />
             </template>
           </v-switch>
@@ -84,6 +85,8 @@ import {useGlobalStore} from './store/global';
 import {useSettingsStore} from './store/settings';
 import {storeToRefs} from 'pinia';
 import {useCommunicationsStore} from '@/store/communications';
+import {useThrottlesStore} from '@/store/throttles';
+import {Active} from '@cloudthrottle/dcc-ex--commands';
 
 const theme = useTheme();
 const globalStore = useGlobalStore();
@@ -91,11 +94,20 @@ const settingsStore = useSettingsStore();
 const {getTitle, showNavBar, getNavList} = storeToRefs(globalStore);
 const {getTheme} = storeToRefs(settingsStore);
 const toggleNav = computed(() => globalStore.toggleNavBar);
-const powerModel = ref('off');
 theme.global.name.value = getTheme.value;
 
 const {serialConnectionRequest} = useCommunicationsStore();
 const { isConnected } = storeToRefs(useCommunicationsStore())
+
+const throttlesStore = useThrottlesStore();
+const {mainPower} = storeToRefs(throttlesStore)
+
+const powerModel = computed({
+  get: () => mainPower,
+  set: (active: unknown) => {
+    throttlesStore.setMainPower(active as Active)
+  }
+});
 
 </script>
 

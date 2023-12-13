@@ -5,6 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@cloudthrottle/dcc-ex--commands':
+    specifier: ^0.12.0
+    version: 0.12.0
+  '@cloudthrottle/dcc-ex--serial-communicator':
+    specifier: ^0.1.0
+    version: 0.1.0
   '@mdi/font':
     specifier: ^7.3.67
     version: 7.3.67
@@ -340,6 +346,16 @@ packages:
       '@babel/helper-string-parser': 7.22.5
       '@babel/helper-validator-identifier': 7.22.20
       to-fast-properties: 2.0.0
+
+  /@cloudthrottle/dcc-ex--commands@0.12.0:
+    resolution: {integrity: sha512-QGy/DsmwprvQfBJj666P23mfr4NU7zuUGfzwIjGpypvy/ZsO7Xfh7CareScB8e+wyI7TlfetsqGleuJSlN5E9g==}
+    engines: {node: '>=20.4.0', npm: '>=9.7.2'}
+    dev: false
+
+  /@cloudthrottle/dcc-ex--serial-communicator@0.1.0:
+    resolution: {integrity: sha512-fftJJL+jHykpk2eWRjiKpIRfkWC8ETYAJ8MEX04k8+ItH+xXQGBPAzrQSew47jQbhejGK+td96FRzKzLqpTTbg==}
+    engines: {node: '>=16.8.0', npm: '>=8.1.0'}
+    dev: false
 
   /@esbuild/android-arm64@0.18.20:
     resolution: {integrity: sha512-Nz4rJcchGDtENV0eMKUNa6L12zz2zBDXuhj/Vjh18zGqB44Bi7MBMSXjgunJgjRhCmKOjnPuZp4Mb6OKqtMHLQ==}

@@ -52,7 +52,7 @@ function animate() {
 }
 
 onMounted(() => {
-  renderer.domElement = layoutDisplay;
+  // renderer.domElement = layoutDisplay;
   animate();
 });
 </script>

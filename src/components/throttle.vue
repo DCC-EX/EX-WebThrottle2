@@ -30,9 +30,6 @@
             <v-col cols="10">
               <v-row>
                 <v-col cols="3">
-                  <control-knob
-                    v-if="locomotive.throttleType == ThrottleType.ROTARY"
-                  />
                   <v-slider
                     v-if="locomotive.throttleType == ThrottleType.VERTICAL"
                     direction="vertical"
@@ -69,7 +66,6 @@ export default {
 };
 </script>
 <script setup lang="ts">
-import ControlKnob from '@slipmatio/control-knob';
 import {storeToRefs} from 'pinia';
 import {ref, defineProps} from 'vue';
 import {LocomotiveData, ThrottleType, savedLocosStore} from '../store/locos';

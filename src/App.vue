@@ -13,15 +13,6 @@
       </v-app-bar-title>
 
       <template #append>
-        <div>
-          <form @submit.prevent="serialConnectionRequest">
-            <span v-if="isConnected">Connected ✅</span>
-
-            <button v-else type="submit">
-              Connect
-            </button>
-          </form>
-
           <v-switch
             v-model="powerModel"
             hide-details
@@ -31,14 +22,33 @@
           >
             <template #label>
 
-              <label>Power {{ powerModel.value == 1 ? 'On' : 'Off' }}</label>
+             
               <v-icon
                 icon="mdi:power"
                 :class="powerModel.value == 1 ? 'p-on' : 'p-off'"
               />
+              <label>Power {{ powerModel.value == 1 ? 'On' : 'Off' }}</label>
             </template>
           </v-switch>
-        </div>
+          |
+          <form @submit.prevent="serialConnectionRequest" class="comm-con">
+            <span v-if="isConnected"> 
+              
+              <input
+                type="image"
+                class="btnImg"
+                src="src/assets/plug.svg"
+                alt="Conn"
+              />
+              Connected ✅
+            
+            </span>
+
+            <button v-else type="submit">
+              <span class="unit pvs fgc1">liga: </span>
+              Connect
+            </button>
+          </form>
       </template>
     </v-app-bar>
     <v-navigation-drawer v-model="showNavBar">
@@ -87,6 +97,7 @@ import {storeToRefs} from 'pinia';
 import {useCommunicationsStore} from '@/store/communications';
 import {useThrottlesStore} from '@/store/throttles';
 import {Active} from '@cloudthrottle/dcc-ex--commands';
+import 'src/styles/ex-icons.scss'
 
 const theme = useTheme();
 const globalStore = useGlobalStore();
@@ -112,14 +123,26 @@ const powerModel = computed({
 </script>
 
 <style lang="scss">
+.comm-con{
+  margin: 0 16px;
+}
+.p-switch{
+  margin-right: 16px;
+}
 .p-switch.v-switch .v-selection-control__wrapper {
   display: none !important;
   width: 0;
 }
-
+.p-switch .v-label{
+  padding-inline-start: 4px !important;
+  padding-inline-end: 16px;
+  height: 40px !important;
+  background: #000000;
+  border-radius: 24px;
+}
 .p-switch .v-label label {
   font-size: 14px;
-  font-variation-settings: "wght" 200;
+  font-variation-settings: "wght" 300;
   color: #ffffff;
   text-transform: capitalize;
 }
@@ -130,8 +153,8 @@ const powerModel = computed({
   background: #00e700;
   border-radius: 16px;
   padding: 4px;
-  height: 32px;
-  width: 32px;
+  height: 24px;
+  width: 24px;
   margin: 8px;
   border: 1px solid #71ff71;
 }
@@ -141,8 +164,18 @@ const powerModel = computed({
   background: red;
   border-radius: 16px;
   padding: 4px;
-  height: 32px;
-  width: 32px;
+  height: 24px;
+  width: 24px;
   margin: 8px;
+}
+span.inline-icon {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    color: #fff;
+    // background: #fff;
+}
+span.inline-icon svg{
+  color: #fff;
 }
 </style>

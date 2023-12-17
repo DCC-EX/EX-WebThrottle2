@@ -1,0 +1,60 @@
+@import "icon-variables";
+
+@font-face {
+  font-family: '#{$icon-font-family}';
+  src:  url('#{$icon-font-path}/#{$icon-font-family}.eot?ui3lbt');
+  src:  url('#{$icon-font-path}/#{$icon-font-family}.eot?ui3lbt#iefix') format('embedded-opentype'),
+    url('#{$icon-font-path}/#{$icon-font-family}.ttf?ui3lbt') format('truetype'),
+    url('#{$icon-font-path}/#{$icon-font-family}.woff?ui3lbt') format('woff'),
+    url('#{$icon-font-path}/#{$icon-font-family}.svg?ui3lbt##{$icon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Throttle {
+  &:before {
+    content: $icon-Throttle;     
+    color: #474747;
+  }
+}
+.icon-Routes {
+  &:before {
+    content: $icon-Routes;     
+    color: #474747;
+  }
+}
+.icon-Plug {
+  &:before {
+    content: $icon-Plug;     
+    color: #474747;
+  }
+}
+.icon-Locomotive {
+  &:before {
+    content: $icon-Locomotive;     
+    color: #474747;
+  }
+}
+.icon-Serial {
+  &:before {
+    content: $icon-Serial;     
+    color: #474747;
+  }
+}
+

@@ -12,7 +12,7 @@
         {{ getTitle }}
       </v-app-bar-title>
 
-      <template #append>
+      <template class="conn-set-btns" #append >
           <v-switch
             v-model="powerModel"
             hide-details
@@ -28,11 +28,16 @@
               <label>Power {{ powerModel.value == 1 ? 'On' : 'Off' }}</label>
             </template>
           </v-switch>
+          
+          <form class="conn-btn"  @submit.prevent="serialConnectionRequest">
+            
+            <button v-if="isConnected">
+              <span class="icon-Serial"></span>
+              Connected ✅
+            </button>
 
-          <form @submit.prevent="serialConnectionRequest">
-            <span class="conn-type-icon"><img src="../src/assets/Serial.svg"/></span>
-            <span v-if="isConnected" class="font-light">Connected ✅</span>
-            <button v-else type="submit"  class="font-light">
+            <button v-else type="submit">
+              <span class="icon-Plug"></span>
               Connect
             </button>
           </form>
@@ -114,20 +119,20 @@ const powerModel = computed({
   font-variation-settings: "wght" 200;
   font-size: 14px;
 }
+.conn-set-btns{
+  color: rgba(255, 255, 255, 0.9);
+}
 .p-switch.v-switch .v-selection-control__wrapper {
   display: none !important;
   width: 0;
 }
 
 .p-switch .v-label{
-  font-size: 14px;
-  font-variation-settings: "wght" 300;
-  color: #ffffff;
   text-transform: capitalize;
   padding-inline-start: 0px !important;
-  padding: 20px 16px;
+  padding: 18px 16px;
   height: 24px !important;
-  margin: 0 24px;
+  margin: 0 16px;
   background: #000000;
   border-radius: 24px;
 }
@@ -164,5 +169,28 @@ span.conn-type-icon img {
     height: 20px;
     width: 20px;
     vertical-align: middle;
+}
+.conn-btn::before{
+  content: "|";
+  opacity: 0.6;
+}
+.conn-btn button {
+    padding: 4px;
+    padding-top: 5px;
+    margin: 0 8px;
+    border-radius: 24px;
+    line-height: 26px;
+    font-weight: 200;
+    text-shadow: 1px 1px 2px #000000;
+}
+.conn-btn button span.icon-Plug,
+.conn-btn button span.icon-Serial{
+  padding: 6px;
+  border-radius: 18px;
+  border: 1px solid #aaa;
+  font-size: 14px;
+}
+.conn-btn button span.icon-Serial {
+    padding: 4px 7px;
 }
 </style>

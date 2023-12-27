@@ -84,7 +84,7 @@ import {storeToRefs} from 'pinia';
 import {useCommunicationsStore} from '@/store/communications';
 import {useThrottlesStore} from '@/store/throttles';
 import {Active} from '@cloudthrottle/dcc-ex--commands';
-//import 'src/styles/ex-icons.scss'
+import './assets/styles/ex-icons.scss';
 
 const theme = useTheme();
 const globalStore = useGlobalStore();

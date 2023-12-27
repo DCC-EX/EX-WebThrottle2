@@ -158,18 +158,6 @@ const powerModel = computed({
   width: 24px;
   margin: 8px;
 }
-span.conn-type-icon {
-    border: 1px solid #9d9d9d;
-    padding: 2px 3px;
-    border-radius: 20px;
-    margin: 0 4px;
-}
-span.conn-type-icon img {
-    display: inline-block;
-    height: 20px;
-    width: 20px;
-    vertical-align: middle;
-}
 .conn-btn::before{
   content: "|";
   opacity: 0.6;

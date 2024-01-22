@@ -53,8 +53,8 @@ devDependencies:
     specifier: ^1.39.0
     version: 1.39.0
   '@rushstack/eslint-patch':
-    specifier: ^1.5.1
-    version: 1.5.1
+    specifier: ^1.7.0
+    version: 1.7.0
   '@types/jsdom':
     specifier: ^21.1.4
     version: 21.1.4
@@ -997,8 +997,8 @@ packages:
     dev: true
     optional: true
 
-  /@rushstack/eslint-patch@1.5.1:
-    resolution: {integrity: sha512-6i/8UoL0P5y4leBIGzvkZdS85RDMG9y1ihZzmTZQ5LdHUYmZ7pKFoj8X0236s3lusPs1Fa5HTQUpwI+UfTcmeA==}
+  /@rushstack/eslint-patch@1.7.0:
+    resolution: {integrity: sha512-Jh4t/593gxs0lJZ/z3NnasKlplXT2f+4y/LZYuaKZW5KAaiVFL/fThhs+17EbUd53jUVJ0QudYCBGbN/psvaqg==}
     dev: true
 
   /@serialport/binding-mock@10.2.2:

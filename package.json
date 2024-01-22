@@ -20,7 +20,7 @@
         "vue": "^3.3.13",
         "vue-round-slider": "github:dexslab/vue-round-slider",
         "vue-router": "^4.2.5",
-        "vuetify": "^3.3.23",
+        "vuetify": "^3.5.1",
         "webfontloader": "^1.6.28"
     },
     "devDependencies": {

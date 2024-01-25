@@ -2,14 +2,13 @@
     "name": "ex-webthrottle2",
     "version": "0.0.0",
     "engines": {
-        "node": ">=20.0.0 < 21.0.0",
-        "npm": ">=8.0.0 < 10.0.0"
+        "node": ">=20.0.0 < 21.0.0"
     },
     "scripts": {
         "dev": "vite",
         "build": "vue-tsc --noEmit && vite build",
         "preview": "vite preview",
-        "test:unit": "vitest --environment jsdom --root src/ --coverage",
+        "test:unit": "vitest run --environment jsdom --root src/",
         "test:e2e": "playwright test",
         "lint:fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore --config .eslintrc.json",
         "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --config .eslintrc.json"

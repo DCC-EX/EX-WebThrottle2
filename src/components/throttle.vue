@@ -53,7 +53,7 @@
             label="speedController"
             variant="solo"
             :items="['Vertical', 'Knob', 'Circular', 'Horizontal']"
-            @update:model-value="updateActiveThrottle(loco, locomotive)"
+            @update:model-value="updateActiveThrottle({loco, locomotive})"
           />
         </v-window-item>
       </v-window>
@@ -62,21 +62,29 @@
 </template>
 <script lang="ts">
 export default {
-  name: 'Throttle',
+  name: 'ThrottleDetail',
 };
 </script>
 <script setup lang="ts">
 import {storeToRefs} from 'pinia';
 import {ref, defineProps} from 'vue';
-import {LocomotiveData, ThrottleType, savedLocosStore} from '../store/locos';
+import {LocomotiveData, ThrottleType, savedLocosStore} from '@/store/locos';
 
 const locoStore = savedLocosStore();
 const props = defineProps({loco: {type: Number, default: 0}});
 const {activeThrottles} = storeToRefs(locoStore);
-const updateActiveThrottle = (loco: number | undefined, locomotive: LocomotiveData) => {
-  if (loco)
-    locoStore.updateActiveThrottle(loco, locomotive);
+
+type UpdateActiveThrottleProps = {
+  loco: number
+  locomotive: LocomotiveData
 }
+
+type UpdateActiveThrottle = (props: UpdateActiveThrottleProps) => void
+const updateActiveThrottle: UpdateActiveThrottle = ({loco, locomotive}) => {
+  if (loco) {
+    locoStore.updateActiveThrottle(loco, locomotive);
+  }
+};
 const locomotive = activeThrottles.value[props.loco ? props.loco : 0];
 const tab = ref('throttle');
 </script>

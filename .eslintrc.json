@@ -1,29 +1,50 @@
 {
-    "root": true,
-	"extends": [
-        "plugin:vue/vue3-recommended",
-		"eslint:recommended",
-        "@vue/eslint-config-typescript/recommended",
-		"plugin:@typescript-eslint/recommended",
-        "google"
-	],
-    "parserOptions": {
-        "ecmaVersion": "latest"
-    },
-	"parser": "vue-eslint-parser",
-    "plugins": [
-		"vue",
-        "@typescript-eslint",
-        "only-warn"
+  "root": true,
+  "extends": [
+    "plugin:vue/vue3-recommended",
+    "eslint:recommended",
+    "@vue/eslint-config-typescript/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "google"
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "parser": "vue-eslint-parser",
+  "plugins": [
+    "vue",
+    "@typescript-eslint",
+    "only-warn"
+  ],
+  "ignorePatterns": [
+    "*.js",
+    "*.config.ts"
+  ],
+  "rules": {
+    "semi": [
+      "warn",
+      "always"
     ],
-    "ignorePatterns": ["*.js", "*.config.ts"],
-    "rules": {
-		"semi": ["warn", "always"],
-        "vue/html-indent": ["warn", 2],
-        "vue/html-closing-bracket-spacing": "off",
-        "no-trailing-spaces": ["warn", {"skipBlankLines": true}],
-        "indent": ["warn", 2],
-        "quotes": ["warn", "single"],
-        "no-unused-vars":"off"
-    }
+    "vue/html-indent": [
+      "warn",
+      2
+    ],
+    "vue/html-closing-bracket-spacing": "off",
+    "no-trailing-spaces": [
+      "warn",
+      {
+        "skipBlankLines": true
+      }
+    ],
+    "indent": [
+      "warn",
+      2
+    ],
+    "quotes": [
+      "warn",
+      "single"
+    ],
+    "no-unused-vars": "off",
+    "require-jsdoc": "off"
+  }
 }

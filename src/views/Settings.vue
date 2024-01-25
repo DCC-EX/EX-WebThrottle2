@@ -65,7 +65,6 @@ import { ref, computed } from "vue";
 import { useSettingsStore } from "../store/settings";
 const settingsStore = useSettingsStore();
 const { getTheme, getController } = storeToRefs(settingsStore);
-const setTheme = computed(settingsStore.setTheme);
 const tab = ref("general");
 const currentTheme = ref(getTheme);
 const currentController = ref(getController);

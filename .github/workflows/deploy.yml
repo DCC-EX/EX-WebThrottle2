@@ -38,15 +38,12 @@ jobs:
                   cache-dependency-path: pnpm-lock.json
             - uses: pnpm/action-setup@v2
               name: Install pnpm
-              with:
-                  version: 8
-                  run_install: false
 
             - name: Install dependencies
-              run: npm install
+              run: pnpm install --frozen-lockfile
 
             - name: Build Vue
-              run: npm run build
+              run: pnpm run build
 
             - name: Upload GitHub Pages artifact
               uses: actions/upload-pages-artifact@v1.0.4

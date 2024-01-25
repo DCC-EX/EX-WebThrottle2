@@ -41,7 +41,7 @@ jobs:
               run: npm ci
 
             - name: Build project
-              run: npm build
+              run: npm run build
 
             - name: Upload GitHub Pages artifact
               uses: actions/upload-pages-artifact@v1.0.4

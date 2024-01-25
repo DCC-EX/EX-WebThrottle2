@@ -1,14 +1,17 @@
 {
     "name": "ex-webthrottle2",
     "version": "0.0.0",
-    "packageManager": "pnpm@8.11.0",
+    "engines": {
+        "node": ">=20.0.0 < 21.0.0"
+    },
     "scripts": {
         "dev": "vite",
         "build": "vue-tsc --noEmit && vite build",
         "preview": "vite preview",
-        "test:unit": "vitest --environment jsdom --root src/ --coverage",
+        "test:unit": "vitest run --environment jsdom --root src/",
         "test:e2e": "playwright test",
-        "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+        "lint:fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore --config .eslintrc.json",
+        "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --config .eslintrc.json"
     },
     "dependencies": {
         "@cloudthrottle/dcc-ex--commands": "^0.12.0",

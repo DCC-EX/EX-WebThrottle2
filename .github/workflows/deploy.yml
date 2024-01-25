@@ -37,9 +37,11 @@ jobs:
                   # Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.
                   cache-dependency-path: package-lock.json
 
-            - name: Build
-              # Installs and builds project
+            - name: Install dependencies
               run: npm ci
+
+            - name: Build project
+              run: npm build
 
             - name: Upload GitHub Pages artifact
               uses: actions/upload-pages-artifact@v1.0.4

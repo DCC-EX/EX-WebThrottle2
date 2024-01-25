@@ -11,7 +11,8 @@
         "preview": "vite preview",
         "test:unit": "vitest --environment jsdom --root src/ --coverage",
         "test:e2e": "playwright test",
-        "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+        "lint:fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore --config .eslintrc.json",
+        "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --config .eslintrc.json"
     },
     "dependencies": {
         "@cloudthrottle/dcc-ex--commands": "^0.12.0",

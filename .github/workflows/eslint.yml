@@ -22,37 +22,22 @@ jobs:
     eslint:
         name: Run eslint scanning
         runs-on: ubuntu-latest
-        permissions:
-            contents: read
-            security-events: write
-            actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
+        env:
+          GH_BUILD: true
+
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
 
-            - uses: actions/setup-node@v4
+            - name: Setup Node.js environment
+              uses: actions/setup-node@v4
               with:
-                  node-version: "18.x"
-            - uses: pnpm/action-setup@v2
-              name: Install pnpm
-              with:
-                  version: 8
-                  run_install: false
-            - name: Install ESLint
-              run: pnpm install
-                  pnpm install @microsoft/eslint-formatter-sarif@2.1.7
+                node-version: 20.x
+                cache: npm
+                cache-dependency-path: package-lock.json
+
+            - name: Install dependencies
+              run: npm install
 
             - name: Run ESLint
-              run: npx eslint .
-                  --config .eslintrc.json
-                  --ext .js,.jsx,.ts,.tsx,.vue
-                  --format @microsoft/eslint-formatter-sarif
-                  --output-file eslint-results.sarif
-                  --max-warnings=0
-              continue-on-error: true
-
-            - name: Upload analysis results to GitHub
-              uses: github/codeql-action/upload-sarif@v2
-              with:
-                  sarif_file: eslint-results.sarif
-                  wait-for-processing: true
+              run: npm run lint

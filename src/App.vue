@@ -12,16 +12,7 @@
         {{ getTitle }}
       </v-app-bar-title>
 
-      <template #append>
-        <div>
-          <form @submit.prevent="serialConnectionRequest">
-            <span v-if="isConnected">Connected ✅</span>
-
-            <button v-else type="submit">
-              Connect
-            </button>
-          </form>
-
+      <template class="conn-set-btns" #append >
           <v-switch
             v-model="powerModel"
             hide-details
@@ -29,16 +20,27 @@
             false-value="0"
             class="p-switch"
           >
-            <template #label>
-
-              <label>Power {{ powerModel.value == 1 ? 'On' : 'Off' }}</label>
+            <template #label>  
               <v-icon
                 icon="mdi:power"
                 :class="powerModel.value == 1 ? 'p-on' : 'p-off'"
               />
+              <label>Power {{ powerModel.value == 1 ? 'On' : 'Off' }}</label>
             </template>
           </v-switch>
-        </div>
+          
+          <form class="conn-btn"  @submit.prevent="serialConnectionRequest">
+            
+            <button v-if="isConnected">
+              <span class="icon-Serial"></span>
+              Connected ✅
+            </button>
+
+            <button v-else type="submit">
+              <span class="icon-Plug"></span>
+              Connect
+            </button>
+          </form>
       </template>
     </v-app-bar>
     <v-navigation-drawer v-model="showNavBar">
@@ -87,6 +89,7 @@ import {storeToRefs} from 'pinia';
 import {useCommunicationsStore} from '@/store/communications';
 import {useThrottlesStore} from '@/store/throttles';
 import {Active} from '@cloudthrottle/dcc-ex--commands';
+import './assets/styles/ex-icons.scss';
 
 const theme = useTheme();
 const globalStore = useGlobalStore();
@@ -112,16 +115,26 @@ const powerModel = computed({
 </script>
 
 <style lang="scss">
+.font-light{
+  font-variation-settings: "wght" 200;
+  font-size: 14px;
+}
+.conn-set-btns{
+  color: rgba(255, 255, 255, 0.9);
+}
 .p-switch.v-switch .v-selection-control__wrapper {
   display: none !important;
   width: 0;
 }
 
-.p-switch .v-label label {
-  font-size: 14px;
-  font-variation-settings: "wght" 200;
-  color: #ffffff;
+.p-switch .v-label{
   text-transform: capitalize;
+  padding-inline-start: 0px !important;
+  padding: 18px 16px;
+  height: 24px !important;
+  margin: 0 16px;
+  background: #000000;
+  border-radius: 24px;
 }
 
 .p-switch .p-on {
@@ -130,8 +143,8 @@ const powerModel = computed({
   background: #00e700;
   border-radius: 16px;
   padding: 4px;
-  height: 32px;
-  width: 32px;
+  height: 24px;
+  width: 24px;
   margin: 8px;
   border: 1px solid #71ff71;
 }
@@ -141,8 +154,31 @@ const powerModel = computed({
   background: red;
   border-radius: 16px;
   padding: 4px;
-  height: 32px;
-  width: 32px;
+  height: 24px;
+  width: 24px;
   margin: 8px;
+}
+.conn-btn::before{
+  content: "|";
+  opacity: 0.6;
+}
+.conn-btn button {
+    padding: 4px;
+    padding-top: 5px;
+    margin: 0 8px;
+    border-radius: 24px;
+    line-height: 26px;
+    font-weight: 200;
+    text-shadow: 1px 1px 2px #000000;
+}
+.conn-btn button span.icon-Plug,
+.conn-btn button span.icon-Serial{
+  padding: 6px;
+  border-radius: 18px;
+  border: 1px solid #aaa;
+  font-size: 14px;
+}
+.conn-btn button span.icon-Serial {
+    padding: 4px 7px;
 }
 </style>

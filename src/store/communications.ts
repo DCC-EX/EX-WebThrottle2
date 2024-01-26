@@ -80,7 +80,9 @@ export const useCommunicationsStore = defineStore('communications', {
     },
     async serialConnectionRequest(): Promise<void> {
       try {
-        const {writer} = await createSerialConnection({readHandler: this.readHandler});
+        const {writer} = await createSerialConnection({
+          readHandler: this.readHandler,
+        });
         this.writer = writer;
       } catch (e) {
         console.debug('serialConnectionRequest', e);

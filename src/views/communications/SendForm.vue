@@ -24,10 +24,17 @@ function handleFormSubmit(message: string) {
   </p>
 
   <v-form @submit.prevent="handleFormSubmit(formMessage)">
-    <v-text-field v-model="formMessage" label="Command" required/>
+    <v-text-field
+      v-model="formMessage"
+      label="Command"
+      required
+    />
 
     <div>
-      <v-btn type="submit" text="Send"/>
+      <v-btn
+        type="submit"
+        text="Send"
+      />
     </div>
   </v-form>
 </template>

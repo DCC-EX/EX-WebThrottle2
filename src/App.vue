@@ -12,35 +12,40 @@
         {{ getTitle }}
       </v-app-bar-title>
 
-      <template class="conn-set-btns" #append >
-          <v-switch
-            v-model="powerModel"
-            hide-details
-            true-value="1"
-            false-value="0"
-            class="p-switch"
-          >
-            <template #label>  
-              <v-icon
-                icon="mdi:power"
-                :class="powerModel.value == 1 ? 'p-on' : 'p-off'"
-              />
-              <label>Power {{ powerModel.value == 1 ? 'On' : 'Off' }}</label>
-            </template>
-          </v-switch>
-          
-          <form class="conn-btn"  @submit.prevent="serialConnectionRequest">
-            
-            <button v-if="isConnected">
-              <span class="icon-Serial"></span>
-              Connected ✅
-            </button>
+      <template #append>
+        <v-switch
+          v-model="powerModel"
+          hide-details
+          true-value="1"
+          false-value="0"
+          class="p-switch"
+        >
+          <template #label>
+            <v-icon
+              icon="mdi:power"
+              :class="powerModel.value == 1 ? 'p-on' : 'p-off'"
+            />
+            <label>Power {{ powerModel.value == 1 ? 'On' : 'Off' }}</label>
+          </template>
+        </v-switch>
 
-            <button v-else type="submit">
-              <span class="icon-Plug"></span>
-              Connect
-            </button>
-          </form>
+        <form
+          class="conn-btn"
+          @submit.prevent="serialConnectionRequest"
+        >
+          <button v-if="isConnected">
+            <span class="icon-Serial"/>
+            Connected ✅
+          </button>
+
+          <button
+            v-else
+            type="submit"
+          >
+            <span class="icon-Plug"/>
+            Connect
+          </button>
+        </form>
       </template>
     </v-app-bar>
     <v-navigation-drawer v-model="showNavBar">
@@ -82,7 +87,7 @@
 </template>
 <script lang="ts" setup>
 import {useTheme} from 'vuetify';
-import {computed, ref} from 'vue';
+import {computed} from 'vue';
 import {useGlobalStore} from './store/global';
 import {useSettingsStore} from './store/settings';
 import {storeToRefs} from 'pinia';
@@ -100,16 +105,16 @@ const toggleNav = computed(() => globalStore.toggleNavBar);
 theme.global.name.value = getTheme.value;
 
 const {serialConnectionRequest} = useCommunicationsStore();
-const { isConnected } = storeToRefs(useCommunicationsStore())
+const {isConnected} = storeToRefs(useCommunicationsStore());
 
 const throttlesStore = useThrottlesStore();
-const {mainPower} = storeToRefs(throttlesStore)
+const {mainPower} = storeToRefs(throttlesStore);
 
 const powerModel = computed({
   get: () => mainPower,
   set: (active: unknown) => {
-    throttlesStore.setMainPower(active as Active)
-  }
+    throttlesStore.setMainPower(active as Active);
+  },
 });
 
 </script>

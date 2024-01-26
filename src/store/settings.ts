@@ -1,5 +1,5 @@
-import { defineStore } from "pinia";
-import { StorageKeys } from "../utils/enums";
+import {defineStore} from 'pinia';
+import {StorageKeys} from '../utils/enums';
 
 export enum CONNECTION_TYPE {
   SERIAL,
@@ -20,17 +20,17 @@ interface State {
   controller: string;
 }
 
-export const useSettingsStore = defineStore("settings", {
+export const useSettingsStore = defineStore('settings', {
   state: (): State => {
     const savedConnections = localStorage.getItem(
-      StorageKeys.SAVED_CONNECTIONS
+      StorageKeys.SAVED_CONNECTIONS,
     );
     const savedTheme = localStorage.getItem(StorageKeys.THEME);
 
     return {
       connections: savedConnections ? JSON.parse(savedConnections) : [],
-      theme: savedTheme ? savedTheme : "dark",
-      controller: "knob",
+      theme: savedTheme ? savedTheme : 'dark',
+      controller: 'knob',
     };
   },
   getters: {
@@ -43,7 +43,7 @@ export const useSettingsStore = defineStore("settings", {
       this.connections.push(conn);
       localStorage.setItem(
         StorageKeys.SAVED_CONNECTIONS,
-        JSON.stringify(this.connections)
+        JSON.stringify(this.connections),
       );
     },
     setTheme(theme: string) {

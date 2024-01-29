@@ -28,7 +28,7 @@
         "webfontloader": "^1.6.28"
     },
     "devDependencies": {
-        "@babel/types": "^7.23.6",
+        "@babel/types": "^7.23.9",
         "@iconify/vue": "^4.1.1",
         "@playwright/test": "^1.41.1",
         "@rushstack/eslint-patch": "^1.7.1",
